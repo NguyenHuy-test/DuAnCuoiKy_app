@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết danh mục sản phẩm - Highlands Coffee</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="category.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main class="category-main">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="index.html">Trang chủ</a>
+          <span class="breadcrumb-separator">></span>
+          <span class="breadcrumb-current" id="category-breadcrumb"
+            >Cà Phê</span
+          >
+        </nav>
+
+        <!-- Promotion Banners -->
+        <section class="discount-coupons">
+          <div class="coupons-container">
+            <div class="coupon-card">
+              <div class="coupon-left">
+                <div class="coupon-badge">
+                  <span class="coupon-text">TẶNG</span>
+                  <span class="coupon-amount">50K</span>
+                </div>
+              </div>
+              <div class="coupon-right">
+                <div class="coupon-info">
+                  <h3 class="coupon-title">NHẬP MÃ: TANG50K</h3>
+                  <p class="coupon-desc">- Giảm 50K cho hóa đơn từ</p>
+                  <p class="coupon-min">199K</p>
+                </div>
+                <div class="coupon-actions">
+                  <button class="btn-copy-code" onclick="copyCode('TANG50K')">
+                    Sao chép mã
+                  </button>
+                  <button
+                    class="btn-conditions"
+                    onclick="showConditions('TANG50K')"
+                  >
+                    Điều kiện
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="coupon-card">
+              <div class="coupon-left">
+                <div class="coupon-badge">
+                  <span class="coupon-text">TẶNG</span>
+                  <span class="coupon-amount">35K</span>
+                </div>
+              </div>
+              <div class="coupon-right">
+                <div class="coupon-info">
+                  <h3 class="coupon-title">NHẬP MÃ: TANG35K</h3>
+                  <p class="coupon-desc">- Giảm 35K cho hóa đơn từ</p>
+                  <p class="coupon-min">149K</p>
+                </div>
+                <div class="coupon-actions">
+                  <button class="btn-copy-code" onclick="copyCode('TANG35K')">
+                    Sao chép mã
+                  </button>
+                  <button
+                    class="btn-conditions"
+                    onclick="showConditions('TANG35K')"
+                  >
+                    Điều kiện
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="coupon-card">
+              <div class="coupon-left">
+                <div class="coupon-badge">
+                  <span class="coupon-text">TẶNG</span>
+                  <span class="coupon-amount">20K</span>
+                </div>
+              </div>
+              <div class="coupon-right">
+                <div class="coupon-info">
+                  <h3 class="coupon-title">NHẬP MÃ: TANG20K</h3>
+                  <p class="coupon-desc">- Giảm 20K cho hóa đơn từ</p>
+                  <p class="coupon-min">129K</p>
+                </div>
+                <div class="coupon-actions">
+                  <button class="btn-copy-code" onclick="copyCode('TANG20K')">
+                    Sao chép mã
+                  </button>
+                  <button
+                    class="btn-conditions"
+                    onclick="showConditions('TANG20K')"
+                  >
+                    Điều kiện
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Category Header -->
+        <div class="category-header">
+          <h1 id="category-title">Cà Phê</h1>
+
+          <!-- Filter Options -->
+          <div class="filter-options">
+            <div class="filter-group">
+              <label>Sắp xếp:</label>
+              <select id="sort-select" class="filter-select">
+                <option value="default">Mặc định</option>
+                <option value="price-asc">Giá tăng dần</option>
+                <option value="price-desc">Giá giảm dần</option>
+                <option value="name-asc">Tên A-Z</option>
+                <option value="name-desc">Tên Z-A</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Tên A → Z</label>
+            </div>
+
+            <div class="filter-group">
+              <label>Trà A → Z</label>
+            </div>
+
+            <div class="filter-group">
+              <label>Đá xay lạnh</label>
+            </div>
+
+            <div class="filter-group">
+              <label>Đồ uống nóng</label>
+            </div>
+
+            <div class="filter-group">
+              <label>Hàng mới</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+          <div class="container-category">
+            <div class="products-grid" id="category-products">
+              <!-- Products will be loaded here by JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-container" id="paginationContainer">
+              <!-- Pagination will be rendered here -->
+            </div>
+          </div>
+
+          <!-- Load More Button -->
+          <div
+            class="load-more-container"
+            id="load-more-container"
+            style="display: none"
+          >
+            <button class="btn-load-more" id="btn-load-more">
+              Xem thêm sản phẩm
+            </button>
+          </div>
+        </section>
+
+        <!-- No Products Message -->
+        <div class="no-products" id="no-products" style="display: none">
+          <div class="no-products-content">
+            <i class="fas fa-coffee"></i>
+            <h3>Không tìm thấy sản phẩm</h3>
+            <p>Vui lòng thử lại với từ khóa khác hoặc xem các danh mục khác.</p>
+            <a href="index.html" class="btn-back-home">Về trang chủ</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="components.js"></script>
+    <script src="category.js"></script>
+  </body>
+</html>

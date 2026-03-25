@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập - Highlands Coffee</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Login Page Specific Styles */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .login-page {
+        flex: 1;
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #footer-container {
+        margin-top: auto;
+      }
+
+      .login-container {
+        min-width: 650px;
+        margin: 0 auto;
+        background: white;
+        overflow: hidden;
+      }
+
+      .breadcrumb {
+        background: #f8f9fa;
+        padding: 15px 30px;
+        border-bottom: 1px solid #e0e0e0;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .breadcrumb a {
+        color: #666;
+        text-decoration: none;
+      }
+
+      .breadcrumb a:hover {
+        color: #b22a2e;
+      }
+
+      .breadcrumb-separator {
+        margin: 0 8px;
+        color: #999;
+      }
+
+      .login-header {
+        text-align: center;
+        padding: 40px 30px 20px;
+      }
+
+      .login-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .login-subtitle {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .login-subtitle a {
+        color: #b22a2e;
+        text-decoration: none;
+      }
+
+      .login-subtitle a:hover {
+        text-decoration: underline;
+      }
+
+      .login-form {
+        padding: 0 30px 40px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      .required {
+        color: #dc3545;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #b22a2e;
+        box-shadow: 0 0 0 2px rgba(178, 42, 46, 0.1);
+      }
+
+      .form-input::placeholder {
+        color: #999;
+      }
+
+      .login-btn {
+        width: 100%;
+        background: #dfd5c8;
+        color: #af272e;
+        border: none;
+        padding: 15px;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .login-btn:hover {
+        background: #dfd5c8;
+        transform: translateY(-1px);
+      }
+
+      .login-btn:active {
+        transform: translateY(0);
+      }
+
+      .error-message {
+        color: #dc3545;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .form-group.error .form-input {
+        border-color: #dc3545;
+      }
+
+      .form-group.error .error-message {
+        display: block;
+      }
+
+      .forgot-password {
+        margin-top: 20px;
+      }
+
+      .forgot-password a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .forgot-password a:hover {
+        text-decoration: underline;
+      }
+
+      .social-login-section {
+        margin-top: 30px;
+      }
+
+      .divider {
+        text-align: center;
+        margin: 20px 0;
+        position: relative;
+      }
+
+      .divider::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: #e0e0e0;
+      }
+
+      .divider span {
+        background: white;
+        padding: 0 15px;
+        color: #666;
+        font-size: 14px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .social-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .social-btn {
+        flex: 1;
+        padding: 12px 15px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .facebook-btn {
+        background: #4267b2;
+        color: white;
+      }
+
+      .facebook-btn:hover {
+        background: #365899;
+        transform: translateY(-1px);
+      }
+
+      .google-btn {
+        background: #db4437;
+        color: white;
+      }
+
+      .google-btn:hover {
+        background: #c23321;
+        transform: translateY(-1px);
+      }
+
+      .social-icon {
+        font-weight: bold;
+        font-size: 16px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+      }
+
+      @media (max-width: 768px) {
+        .login-container {
+          margin: 0 15px;
+          border-radius: 0;
+        }
+
+        .login-header {
+          padding: 30px 20px 15px;
+        }
+
+        .login-form {
+          padding: 0 20px 30px;
+        }
+
+        .breadcrumb {
+          padding: 15px 20px;
+        }
+
+        .social-buttons {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .social-btn {
+          padding: 15px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <section class="breadcrumb">
+      <div class="container">
+        <nav class="breadcrumb-nav">
+          <a href="index.html">Trang chủ</a>
+          <span>/</span>
+          <span style="font-weight: 600">Đăng nhập tài khoản</span>
+        </nav>
+      </div>
+    </section>
+    <main class="login-page">
+      <div class="login-container">
+        <div class="login-header">
+          <h1 class="login-title">ĐĂNG NHẬP TÀI KHOẢN</h1>
+          <p class="login-subtitle">
+            Bạn chưa có tài khoản? <a href="register.html">Đăng ký tại đây</a>
+          </p>
+        </div>
+
+        <form class="login-form" id="loginForm">
+          <div class="form-group">
+            <label class="form-label" for="email">
+              Email <span class="required">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="Email"
+              required
+            />
+            <div class="error-message">Vui lòng nhập email hợp lệ</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">
+              Mật khẩu <span class="required">*</span>
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-input"
+              placeholder="Mật khẩu"
+              required
+            />
+            <div class="error-message">Vui lòng nhập mật khẩu</div>
+          </div>
+          <div class="forgot-password">
+            Quên mật khẩu? Nhấn vào
+            <a
+              href="#"
+              onclick="alert('Tính năng quên mật khẩu sẽ được cập nhật sau!')"
+              >đây</a
+            >
+          </div>
+          <button type="submit" class="login-btn">Đăng nhập</button>
+
+          <div class="social-login-section">
+            <div class="divider">
+              <span>Hoặc đăng nhập bằng</span>
+            </div>
+
+            <div class="social-buttons">
+              <button
+                type="button"
+                class="social-btn facebook-btn"
+                onclick="loginWithFacebook()"
+              >
+                <span class="social-icon">f</span>
+                Facebook
+              </button>
+              <button
+                type="button"
+                class="social-btn google-btn"
+                onclick="loginWithGoogle()"
+              >
+                <span class="social-icon">G+</span>
+                Google
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script>
+      // Form validation and submission
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = {
+            email: document.getElementById("email").value.trim(),
+            password: document.getElementById("password").value,
+          };
+
+          // Validate form
+          let isValid = true;
+
+          // Reset previous errors
+          document.querySelectorAll(".form-group").forEach((group) => {
+            group.classList.remove("error");
+          });
+
+          // Validate email
+          if (!formData.email) {
+            showError("email", "Vui lòng nhập email");
+            isValid = false;
+          } else if (!isValidEmail(formData.email)) {
+            showError("email", "Email không hợp lệ");
+            isValid = false;
+          }
+
+          // Validate password
+          if (!formData.password) {
+            showError("password", "Vui lòng nhập mật khẩu");
+            isValid = false;
+          }
+
+          if (isValid) {
+            // Attempt login
+            loginUser(formData);
+          }
+        });
+
+      function showError(fieldName, message) {
+        const field = document.getElementById(fieldName);
+        const formGroup = field.closest(".form-group");
+        const errorMessage = formGroup.querySelector(".error-message");
+
+        formGroup.classList.add("error");
+        errorMessage.textContent = message;
+      }
+
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function loginUser(formData) {
+        // Show loading state
+        const submitBtn = document.querySelector(".login-btn");
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Đang đăng nhập...";
+        submitBtn.disabled = true;
+
+        // Simulate API call
+        setTimeout(() => {
+          // Get users from localStorage
+          const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+          // Find user with matching email and password
+          const user = users.find(
+            (u) =>
+              u.email === formData.email && u.password === formData.password
+          );
+
+          if (user) {
+            // Login successful
+            localStorage.setItem(
+              "currentUser",
+              JSON.stringify({
+                id: user.id,
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                loginTime: new Date().toISOString(),
+              })
+            );
+
+            alert("Đăng nhập thành công!");
+
+            // Redirect to home page
+            window.location.href = "index.html";
+          } else {
+            // Login failed
+            showError("password", "Email hoặc mật khẩu không đúng");
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        }, 1500);
+      }
+
+      function loginWithFacebook() {
+        // Show loading state
+        const facebookBtn = document.querySelector(".facebook-btn");
+        const originalText = facebookBtn.innerHTML;
+        facebookBtn.innerHTML =
+          '<span class="social-icon">f</span>Đang kết nối...';
+        facebookBtn.disabled = true;
+
+        // Simulate Facebook login
+        setTimeout(() => {
+          // In real app, this would integrate with Facebook SDK
+          const mockUser = {
+            id: Date.now(),
+            email: "user@facebook.com",
+            firstName: "Facebook",
+            lastName: "User",
+            loginMethod: "facebook",
+          };
+
+          localStorage.setItem(
+            "currentUser",
+            JSON.stringify({
+              ...mockUser,
+              loginTime: new Date().toISOString(),
+            })
+          );
+
+          alert("Đăng nhập Facebook thành công!");
+          window.location.href = "index.html";
+        }, 2000);
+      }
+
+      function loginWithGoogle() {
+        // Show loading state
+        const googleBtn = document.querySelector(".google-btn");
+        const originalText = googleBtn.innerHTML;
+        googleBtn.innerHTML =
+          '<span class="social-icon">G+</span>Đang kết nối...';
+        googleBtn.disabled = true;
+
+        // Simulate Google login
+        setTimeout(() => {
+          // In real app, this would integrate with Google OAuth
+          const mockUser = {
+            id: Date.now(),
+            email: "user@gmail.com",
+            firstName: "Google",
+            lastName: "User",
+            loginMethod: "google",
+          };
+
+          localStorage.setItem(
+            "currentUser",
+            JSON.stringify({
+              ...mockUser,
+              loginTime: new Date().toISOString(),
+            })
+          );
+
+          alert("Đăng nhập Google thành công!");
+          window.location.href = "index.html";
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

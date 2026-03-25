@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cart - Highlands Coffee</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        
+        .test-button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .test-button:hover {
+            background: #c82333;
+        }
+        
+        .cart-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    <div class="test-container">
+        <h1>Test Cart Functionality</h1>
+        
+        <div class="test-section">
+            <h3>Test Add Products to Cart</h3>
+            <button class="test-button" onclick="testAddFlashSale()">Add Flash Sale Product</button>
+            <button class="test-button" onclick="testAddCoffee()">Add Coffee Product</button>
+            <button class="test-button" onclick="testAddNewProduct()">Add New Product</button>
+            <div class="cart-info" id="cartInfo">
+                <strong>Cart Status:</strong> <span id="cartStatus">Loading...</span>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test Cart Operations</h3>
+            <button class="test-button" onclick="showCartContents()">Show Cart Contents</button>
+            <button class="test-button" onclick="clearCart()">Clear Cart</button>
+            <button class="test-button" onclick="goToCart()">Go to Cart Page</button>
+            <div class="cart-info" id="cartContents">
+                <strong>Cart Contents:</strong> <span id="cartList">Empty</span>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test LocalStorage</h3>
+            <button class="test-button" onclick="showLocalStorage()">Show LocalStorage</button>
+            <button class="test-button" onclick="clearLocalStorage()">Clear LocalStorage</button>
+            <div class="cart-info" id="localStorageInfo">
+                <strong>LocalStorage:</strong> <span id="localStorageContent">Empty</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Load header
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('header-container').innerHTML = html;
+                    
+                    // Add cart button click handler
+                    setTimeout(() => {
+                        const cartBtn = document.querySelector('.cart-btn');
+                        if (cartBtn) {
+                            cartBtn.addEventListener('click', function() {
+                                window.location.href = 'cart.html';
+                            });
+                        }
+                        
+                        // Update cart display
+                        if (window.cart) {
+                            window.cart.updateCartDisplay();
+                            updateCartStatus();
+                        }
+                    }, 100);
+                });
+        });
+        
+        function testAddFlashSale() {
+            if (window.cart && window.mockData) {
+                const product = window.mockData.flashSale[0];
+                window.cart.addItem(product.id, product);
+                updateCartStatus();
+            }
+        }
+        
+        function testAddCoffee() {
+            if (window.cart && window.mockData) {
+                const product = window.mockData.coffeeDaily[0];
+                window.cart.addItem(product.id, product);
+                updateCartStatus();
+            }
+        }
+        
+        function testAddNewProduct() {
+            if (window.cart && window.mockData) {
+                const product = window.mockData.newProducts[0];
+                window.cart.addItem(product.id, product);
+                updateCartStatus();
+            }
+        }
+        
+        function showCartContents() {
+            if (window.cart) {
+                const items = window.cart.items;
+                const cartList = document.getElementById('cartList');
+                if (items.length === 0) {
+                    cartList.textContent = 'Empty';
+                } else {
+                    cartList.innerHTML = items.map(item => 
+                        `${item.name} (x${item.quantity}) - ${window.formatCurrency(item.price)}`
+                    ).join('<br>');
+                }
+            }
+        }
+        
+        function clearCart() {
+            if (window.cart) {
+                window.cart.items = [];
+                window.cart.saveCart();
+                window.cart.updateCartDisplay();
+                updateCartStatus();
+                showCartContents();
+            }
+        }
+        
+        function goToCart() {
+            window.location.href = 'cart.html';
+        }
+        
+        function showLocalStorage() {
+            const cartData = localStorage.getItem('cart');
+            const localStorageContent = document.getElementById('localStorageContent');
+            if (cartData) {
+                const parsed = JSON.parse(cartData);
+                localStorageContent.textContent = `${parsed.length} items stored`;
+            } else {
+                localStorageContent.textContent = 'Empty';
+            }
+        }
+        
+        function clearLocalStorage() {
+            localStorage.removeItem('cart');
+            showLocalStorage();
+            updateCartStatus();
+        }
+        
+        function updateCartStatus() {
+            const cartStatus = document.getElementById('cartStatus');
+            if (window.cart) {
+                const totalItems = window.cart.getTotalItems();
+                const totalPrice = window.cart.getTotalPrice();
+                cartStatus.innerHTML = `${totalItems} items - ${window.formatCurrency(totalPrice)}`;
+            } else {
+                cartStatus.textContent = 'Cart not initialized';
+            }
+        }
+        
+        // Update status every 2 seconds
+        setInterval(updateCartStatus, 2000);
+    </script>
+</body>
+</html>

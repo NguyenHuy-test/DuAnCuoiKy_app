@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký tài khoản - Highlands Coffee</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Register Page Specific Styles */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .register-page {
+        flex: 1;
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #footer-container {
+        margin-top: auto;
+      }
+
+      .register-container {
+        min-width: 650px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .breadcrumb {
+        background: #f8f9fa;
+        padding: 15px 30px;
+        border-bottom: 1px solid #e0e0e0;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .breadcrumb a {
+        color: #666;
+        text-decoration: none;
+      }
+
+      .breadcrumb a:hover {
+        color: #b22a2e;
+      }
+
+      .breadcrumb-separator {
+        margin: 0 8px;
+        color: #999;
+      }
+
+      .register-header {
+        text-align: center;
+        padding: 40px 30px 20px;
+      }
+
+      .register-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .register-subtitle {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .register-subtitle a {
+        color: #b22a2e;
+        text-decoration: none;
+      }
+
+      .register-subtitle a:hover {
+        text-decoration: underline;
+      }
+
+      .register-form {
+        padding: 0 30px 40px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      .required {
+        color: #dc3545;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #b22a2e;
+        box-shadow: 0 0 0 2px rgba(178, 42, 46, 0.1);
+      }
+
+      .form-input::placeholder {
+        color: #999;
+      }
+
+      .register-btn {
+        width: 100%;
+        background: #dfd5c8;
+        color: #af272e;
+        border: none;
+        padding: 15px;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .register-btn:hover {
+        background: #dfd5c8;
+        transform: translateY(-1px);
+      }
+
+      .register-btn:active {
+        transform: translateY(0);
+      }
+
+      .error-message {
+        color: #dc3545;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .form-group.error .form-input {
+        border-color: #dc3545;
+      }
+
+      .form-group.error .error-message {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .register-container {
+          margin: 0 15px;
+          border-radius: 0;
+        }
+
+        .register-header {
+          padding: 30px 20px 15px;
+        }
+
+        .register-form {
+          padding: 0 20px 30px;
+        }
+
+        .breadcrumb {
+          padding: 15px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <section class="breadcrumb">
+      <div class="container">
+        <nav class="breadcrumb-nav">
+          <a href="index.html">Trang chủ</a>
+          <span>/</span>
+          <span style="font-weight: 600">Đăng ký tài khoản</span>
+        </nav>
+      </div>
+    </section>
+    <main class="register-page">
+      <div class="register-container">
+        <div class="register-header">
+          <h1 class="register-title">ĐĂNG KÝ TÀI KHOẢN</h1>
+          <p class="register-subtitle">
+            Bạn đã có tài khoản? <a href="login.html">Đăng nhập tại đây</a>
+          </p>
+        </div>
+
+        <form class="register-form" id="registerForm">
+          <div class="form-group">
+            <label class="form-label" for="lastName">
+              Họ <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              class="form-input"
+              placeholder="Họ"
+              required
+            />
+            <div class="error-message">Vui lòng nhập họ</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="firstName">
+              Tên <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              class="form-input"
+              placeholder="Tên"
+              required
+            />
+            <div class="error-message">Vui lòng nhập tên</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">
+              Email <span class="required">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="Email"
+              required
+            />
+            <div class="error-message">Vui lòng nhập email hợp lệ</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">
+              Mật khẩu <span class="required">*</span>
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-input"
+              placeholder="Mật khẩu"
+              required
+            />
+            <div class="error-message">Mật khẩu phải có ít nhất 6 ký tự</div>
+          </div>
+
+          <button type="submit" class="register-btn">Đăng ký</button>
+        </form>
+      </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script>
+      // Form validation and submission
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = {
+            lastName: document.getElementById("lastName").value.trim(),
+            firstName: document.getElementById("firstName").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            password: document.getElementById("password").value,
+          };
+
+          // Validate form
+          let isValid = true;
+
+          // Reset previous errors
+          document.querySelectorAll(".form-group").forEach((group) => {
+            group.classList.remove("error");
+          });
+
+          // Validate lastName
+          if (!formData.lastName) {
+            showError("lastName", "Vui lòng nhập họ");
+            isValid = false;
+          }
+
+          // Validate firstName
+          if (!formData.firstName) {
+            showError("firstName", "Vui lòng nhập tên");
+            isValid = false;
+          }
+
+          // Validate email
+          if (!formData.email) {
+            showError("email", "Vui lòng nhập email");
+            isValid = false;
+          } else if (!isValidEmail(formData.email)) {
+            showError("email", "Email không hợp lệ");
+            isValid = false;
+          }
+
+          // Validate password
+          if (!formData.password) {
+            showError("password", "Vui lòng nhập mật khẩu");
+            isValid = false;
+          } else if (formData.password.length < 6) {
+            showError("password", "Mật khẩu phải có ít nhất 6 ký tự");
+            isValid = false;
+          }
+
+          if (isValid) {
+            // Simulate registration
+            registerUser(formData);
+          }
+        });
+
+      function showError(fieldName, message) {
+        const field = document.getElementById(fieldName);
+        const formGroup = field.closest(".form-group");
+        const errorMessage = formGroup.querySelector(".error-message");
+
+        formGroup.classList.add("error");
+        errorMessage.textContent = message;
+      }
+
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function registerUser(formData) {
+        // Show loading state
+        const submitBtn = document.querySelector(".register-btn");
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Đang đăng ký...";
+        submitBtn.disabled = true;
+
+        // Simulate API call
+        setTimeout(() => {
+          // Save user data to localStorage (in real app, this would be sent to server)
+          const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+          // Check if email already exists
+          if (users.find((user) => user.email === formData.email)) {
+            showError("email", "Email này đã được sử dụng");
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            return;
+          }
+
+          // Add new user
+          const newUser = {
+            id: Date.now(),
+            ...formData,
+            createdAt: new Date().toISOString(),
+          };
+          users.push(newUser);
+          localStorage.setItem("users", JSON.stringify(users));
+
+          // Show success message
+          alert("Đăng ký thành công! Bạn sẽ được chuyển đến trang đăng nhập.");
+
+          // Redirect to login page
+          window.location.href = "login.html";
+        }, 1500);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thẻ Quà Tặng - Highlands Coffee</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="gift-card.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+
+    <div id="header-container"></div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Banner -->
+      <section class="hero-banner">
+        <img
+          src="./public/banner.png"
+          alt="Highlands App"
+          style="width: 100%; height: auto; object-fit: conver"
+        />
+      </section>
+
+      <!-- Steps Section -->
+      <section class="steps-section">
+        <div class="container">
+          <h2 class="section-title">3 Bước Xứng Xinh Rinh Thẻ</h2>
+          <div class="steps-container">
+            <div class="step">
+              <div class="step-circle">
+                <img src="./public/b1.png" alt="Chọn mẫu thẻ" />
+              </div>
+              <div class="step-line"></div>
+              <p>
+                Chọn mẫu thẻ ưng ý và điền đầy đủ thông tin bạn muốn nhắn nhủ
+                tới người thương
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-circle">
+                <img src="./public/b2.png" alt="Chọn mẫu thẻ" />
+              </div>
+              <div class="step-line"></div>
+              <p>Thanh toán</p>
+            </div>
+            <div class="step">
+              <div class="step-circle step-circle-pink">
+                <img src="./public/b3.png" alt="Nhận thẻ" />
+              </div>
+              <p>
+                Người nhận thẻ sẽ nhận được Mã Xác Nhận qua SMS từ Highlands
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gift Card Selection -->
+      <section class="gift-card-section">
+        <div class="container">
+          <h2 class="section-title">Chọn mẫu thẻ</h2>
+          <p class="section-subtitle">
+            Highlands Coffee Card có thể sử dụng tại tất cả các cửa hàng. Có thể
+            mua thẻ từ 50.000 VNĐ trở lên và không có hạn sử dụng.
+          </p>
+
+          <div class="gift-card-preview">
+            <img
+              src="./public/mauthe.png"
+              alt="Mẫu thẻ quà tặng"
+              id="selected-card"
+            />
+          </div>
+
+          <!-- Gift Card Form -->
+          <div class="gift-card-form">
+            <h3>Giá trị Thẻ Highlands Coffee</h3>
+            <p>Vui lòng chọn giá trị Thẻ Highlands Coffee</p>
+
+            <div class="amount-options">
+              <button class="amount-btn" data-amount="100000">
+                100.000 VNĐ
+              </button>
+              <button class="amount-btn" data-amount="200000">
+                200.000 VNĐ
+              </button>
+              <button class="amount-btn" data-amount="500000">
+                500.000 VNĐ
+              </button>
+              <button class="amount-btn" data-amount="1000000">
+                1.000.000 VNĐ
+              </button>
+            </div>
+
+            <!-- Sender Info -->
+            <div class="form-section">
+              <h4>Thông tin người gửi</h4>
+              <div class="form-group">
+                <label>Tên người gửi <span class="required">*</span></label>
+                <input type="text" id="sender-name" required />
+              </div>
+              <div class="form-group">
+                <label>Email người gửi <span class="required">*</span></label>
+                <input type="email" id="sender-email" required />
+              </div>
+              <div class="form-group">
+                <label
+                  >Số điện thoại người gửi
+                  <span class="required">*</span></label
+                >
+                <input type="tel" id="sender-phone" required />
+                <small
+                  >(*) Vui lòng điền số điện thoại bao gồm 10-11 kí tự số 0-9,
+                  bắt đầu bằng kí tự 0, không chứa khoảng cách, chữ cái hoặc kí
+                  tự đặc biệt</small
+                >
+              </div>
+            </div>
+
+            <!-- Recipient Info -->
+            <div class="form-section">
+              <div
+                class="container-info"
+                style="display: flex; align-items: center; gap: 20px"
+              >
+                <h4>Thông tin người nhận</h4>
+                <div class="checkbox-group">
+                  <input type="checkbox" id="same-as-sender" />
+                  <label for="same-as-sender">Tôi muốn tặng chính mình</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Tên người nhận <span class="required">*</span></label>
+                <input type="text" id="recipient-name" required />
+              </div>
+              <div class="form-group">
+                <label>Email người nhận</label>
+                <input type="email" id="recipient-email" />
+              </div>
+              <div class="form-group">
+                <label
+                  >Số điện thoại người nhận
+                  <span class="required">*</span></label
+                >
+                <input type="tel" id="recipient-phone" required />
+                <small
+                  >(*) Vui lòng điền số điện thoại bao gồm 10-11 kí tự số 0-9,
+                  bắt đầu bằng kí tự 0, không chứa khoảng cách, chữ cái hoặc kí
+                  tự đặc biệt</small
+                >
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-section">
+              <h4 style="color: #b5202e">
+                Lời bạn muốn nhắn nhủ đến người nhận
+              </h4>
+              <div class="form-group">
+                <label>Điền nội dung tại đây</label>
+                <textarea
+                  id="gift-message"
+                  rows="4"
+                  placeholder="255 ký tự tối đa"
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-actions">
+              <button type="button" class="btn-cancel">Đặt Lại</button>
+              <button type="submit" class="btn-confirm">Xác Nhận</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Business Solution Section -->
+      <section class="business-section">
+        <div class="container">
+          <div class="business-content">
+            <div class="business-text">
+              <h2>Giải pháp doanh nghiệp</h2>
+              <p>
+                Vui lòng nhấn "liên hệ" để gửi thông tin cho chúng tôi nếu bạn
+                cần mua số lượng lớn để được hỗ trợ tốt nhất
+              </p>
+            </div>
+          </div>
+        </div>
+        <img
+          src="./public/gp.jpg"
+          alt="Thẻ quà tặng doanh nghiệp"
+          style="width: 100%; height: auto; object-fit: cover"
+        />
+      </section>
+
+      <!-- Partner Promotion Section -->
+      <section class="partner-section" style="margin-top: 30px">
+        <div class="partner-image">
+          <button class="contact-btn" style="width: 300px">Liên Hệ</button>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="container">
+          <h2 class="section-title">FAQS</h2>
+          <div class="faq-container">
+            <div class="faq-column">
+              <div class="faq-item active">
+                <div class="faq-question">
+                  <i class="fas fa-minus"></i>
+                  <span>
+                    Tôi có thể đăng ký thẻ Highlands Coffee để tặng người thân
+                    được không?</span
+                  >
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Bạn có thể tặng bất cứ thẻ Highlands Coffee nào cho người
+                    thân bằng cách đăng ký qua website
+                    card.highlandscoffee.com.vn. Hãy nhớ gửi một lời chúc thật
+                    dễ thương nhé!
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <i class="fas fa-plus"></i>
+                  <span>Làm thế nào để tôi sử dụng được thẻ đã đăng ký?</span>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Sau khi đăng ký thành công, bạn sẽ nhận được thông tin thẻ
+                    qua email hoặc SMS. Bạn có thể sử dụng ngay tại các cửa hàng
+                    Highlands Coffee.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <i class="fas fa-plus"></i>
+                  <span>Tôi phải làm gì nếu không nhận được tin nhắn SMS?</span>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Vui lòng kiểm tra lại số điện thoại và email đã đăng ký. Nếu
+                    vẫn không nhận được, hãy liên hệ hotline 1800 6936 để được
+                    hỗ trợ.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-column">
+              <div class="faq-item">
+                <div class="faq-question">
+                  <i class="fas fa-plus"></i>
+                  <span
+                    >Tôi có thể đổi thẻ Highlands Coffee lấy tiền mặt được
+                    không?</span
+                  >
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Thẻ Highlands Coffee không thể đổi lấy tiền mặt. Tuy nhiên,
+                    bạn có thể sử dụng để mua bất kỳ sản phẩm nào tại Highlands
+                    Coffee.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <i class="fas fa-plus"></i>
+                  <span
+                    >Thời hạn kích hoạt thẻ Highlands Coffee đăng ký qua website
+                    là bao lâu?</span
+                  >
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Thẻ Highlands Coffee không có thời hạn sử dụng. Bạn có thể
+                    kích hoạt và sử dụng bất cứ lúc nào.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Support Section -->
+      <section class="support-section">
+        <div class="container">
+          <h2 class="section-title">HỖ TRỢ THẺ HIGHLANDS COFFEE</h2>
+          <div class="support-buttons">
+            <button class="support-btn">Về Thẻ Highlands Coffee</button>
+            <button class="support-btn">Điều khoản sử dụng</button>
+            <button class="support-btn">FAQs</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script src="gift-card.js"></script>
+  </body>
+</html>

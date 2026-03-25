@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết sản phẩm - Highlands Coffee</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="product-detail.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header-container"></div>
+
+    <main class="product-detail-main">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="index.html">Trang chủ</a>
+          <span class="breadcrumb-separator">></span>
+          <a href="index.html">Sản phẩm</a>
+          <span class="breadcrumb-separator">></span>
+          <span class="breadcrumb-current" id="product-breadcrumb"
+            >Chi tiết sản phẩm</span
+          >
+        </nav>
+
+        <!-- Product Detail Content -->
+        <div class="product-detail-wrapper">
+          <div class="product-detail-container">
+          <!-- Product Image -->
+          <div class="product-image-section">
+            <div class="product-image-main">
+              <img id="product-main-image" src="" alt="Product Image" />
+              <div
+                id="product-badge"
+                class="product-badge"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="product-info-section">
+            <div class="product-brand">
+              <span id="product-brand">Highlands Coffee</span>
+            </div>
+
+            <h1 class="product-title" id="product-title">Tên sản phẩm</h1>
+
+            <div class="product-category">
+              <span>Thể loại: </span>
+              <span id="product-category">Cà phê</span>
+              <span class="category-separator">|</span>
+              <span class="product-sku"
+                >Mã: <span id="product-sku">SP001</span></span
+              >
+            </div>
+
+            <div class="product-price">
+              <span class="current-price" id="product-price">55.000đ</span>
+              <span
+                class="original-price"
+                id="product-original-price"
+                style="display: none"
+              ></span>
+              <span
+                class="discount-badge"
+                id="product-discount"
+                style="display: none"
+              ></span>
+            </div>
+
+            <div class="product-description">
+              <h3>Mô tả:</h3>
+              <p id="product-description-text">
+                Mô tả sản phẩm sẽ được hiển thị ở đây...
+              </p>
+            </div>
+
+            <div
+              class="product-ingredients"
+              id="product-ingredients-section"
+              style="display: none"
+            >
+              <h3>Thành phần:</h3>
+              <p id="product-ingredients-text"></p>
+            </div>
+
+            <div
+              class="product-nutrition"
+              id="product-nutrition-section"
+              style="display: none"
+            >
+              <h3>Thông tin dinh dưỡng:</h3>
+              <p id="product-nutrition-text"></p>
+            </div>
+
+            <!-- Size Selection (if applicable) -->
+            <div class="product-options">
+              <div
+                class="size-selection"
+                id="size-selection"
+                style="display: none"
+              >
+                <h3>Kích thước:</h3>
+                <div class="size-buttons">
+                  <button class="size-btn" data-size="M">M</button>
+                  <button class="size-btn active" data-size="L">L</button>
+                </div>
+              </div>
+
+              <!-- Quantity Selection -->
+              <div class="quantity-selection">
+                <h3>Số lượng:</h3>
+                <div class="quantity-controls">
+                  <button
+                    class="quantity-btn minus"
+                    onclick="decreaseQuantity()"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="product-quantity"
+                    value="1"
+                    min="1"
+                    max="99"
+                    readonly
+                  />
+                  <button
+                    class="quantity-btn plus"
+                    onclick="increaseQuantity()"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="product-actions">
+              <button class="btn-buy-now" onclick="buyNow()">MUA NGAY</button>
+              <button class="btn-add-cart" onclick="addToCartFromDetail()">
+                THÊM VÀO GIỎ
+              </button>
+            </div>
+
+            <!-- Product Features -->
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-shipping-fast"></i>
+                <span>Giao hàng nhanh chóng</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Đảm bảo chất lượng</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-phone"></i>
+                <span>Hỗ trợ 24/7</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+      <div class="product-detail-content">
+        <!-- Product Description Section -->
+        <section class="product-description-section">
+          <div>
+            <h2>Mô tả sản phẩm</h2>
+          <div class="description-content" id="product-description">
+            <!-- Product description will be populated by JavaScript -->
+          </div>
+          </div>
+          <!-- Bakery Sidebar -->
+        <div class="bakery-sidebar">
+          <div class="bakery-header">
+            <span class="bakery-title">Bánh ngon đừng bỏ lỡ</span>
+            <span class="bakery-icon">🛒</span>
+          </div>
+          <div class="bakery-list" id="bakery-sidebar-list">
+            <!-- Bakery items will be populated by JavaScript -->
+          </div>
+        </div>
+        </section>
+
+        <!-- Same Category Products Section -->
+        <section class="same-category-products">
+          <div class="section-header">
+            <h2>Sản phẩm cùng loại</h2>
+            
+          </div>
+          <div class="same-category-grid" id="same-category-products">
+            <!-- Same category products will be populated by JavaScript -->
+          </div>
+        </section>
+
+        <!-- Related Products -->
+        
+      </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="components.js"></script>
+    <script src="product-detail.js"></script>
+  </body>
+</html>
