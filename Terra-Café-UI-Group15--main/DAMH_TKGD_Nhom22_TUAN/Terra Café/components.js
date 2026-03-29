@@ -6,7 +6,7 @@ function createHeader() {
                 <div class="container">
                     <div>
                         <a href="index.html">
-                        <img src="https://i.postimg.cc/xT2gnhpP/Logo-TERRA-CAFE.jpg" style="height: 60px;"/>
+                        <img src="https://i.postimg.cc/wjJ6Ltc0/Logo-TERRA-CAFE-preview.png" style="height: 60px;"/>
                          
                         </a>
                     </div>
