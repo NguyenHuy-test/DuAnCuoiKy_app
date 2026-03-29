@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlands Coffee - Quản trị hệ thống</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #b22a2e; --dark: #53382c; --light: #f8f9fa; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; background: #eee; }
+        
+        /* Sidebar */
+        .sidebar { width: 250px; height: 100vh; background: var(--dark); color: white; position: fixed; }
+        .sidebar-header { padding: 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .menu-item { padding: 15px 25px; cursor: pointer; display: flex; align-items: center; transition: 0.3s; }
+        .menu-item:hover, .menu-item.active { background: var(--primary); }
+        .menu-item i { margin-right: 15px; width: 20px; }
+
+        /* Main Content */
+        .main-content { margin-left: 250px; width: calc(100% - 250px); padding: 30px; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        
+        /* Table Styles */
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #f4f4f4; color: var(--dark); }
+        
+        /* Form & Modal */
+        .btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .btn-add { background: var(--primary); color: white; margin-bottom: 15px; }
+        .btn-delete { color: #dc3545; background: none; font-size: 18px; }
+        
+        input, select { padding: 8px; margin: 5px 0; border: 1px solid #ddd; border-radius: 4px; width: 100%; box-sizing: border-box; }
+        
+        .status-badge { padding: 4px 8px; border-radius: 20px; font-size: 12px; }
+        .status-pending { background: #ffeeba; color: #856404; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header"><h3>ADMIN HIGHLANDS</h3></div>
+        <div class="menu-item active" onclick="showSection('products')"><i class="fa-solid fa-mug-hot"></i> Sản phẩm</div>
+        <div class="menu-item" onclick="showSection('orders')"><i class="fa-solid fa-cart-shopping"></i> Đơn hàng</div>
+        
+        <div class="menu-item" onclick="showSection('dashboard')"><i class="fa-solid fa-chart-line"></i> Thống kê</div>
+        
+        <div class="menu-item" onclick="localStorage.clear(); location.reload();"><i class="fa-solid fa-arrow-rotate-left"></i> Reset System</div>
+    </div>
+
+    <div class="main-content">
+        <section id="products-section">
+            <div class="card">
+                <h2>Quản lý sản phẩm</h2>
+                <button class="btn btn-add" onclick="toggleForm()">+ Thêm sản phẩm mới</button>
+                
+                <div id="product-form" style="display: none; margin-bottom: 30px; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+                    <input type="text" id="p-name" placeholder="Tên sản phẩm">
+                    <input type="number" id="p-price" placeholder="Giá tiền (VNĐ)">
+                    <input type="text" id="p-img" placeholder="Link ảnh sản phẩm">
+                    <select id="p-cat">
+                        <option value="Cà phê">Cà phê</option>
+                        <option value="Trà">Trà</option>
+                        <option value="Freeze">Freeze</option>
+                    </select>
+                    <button class="btn btn-add" onclick="addProduct()">Lưu sản phẩm</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Tên</th>
+                            <th>Loại</th>
+                            <th>Giá</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-product-list"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="orders-section" style="display: none;">
+            <div class="card">
+                <h2>Danh sách đơn hàng mới</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã ĐH</th>
+                            <th>Khách hàng</th>
+                            <th>Sản phẩm</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-order-list"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="dashboard-section" style="display: none;">
+        <div class="card">
+            <h2>Báo cáo kinh doanh</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 5px solid #2196f3;">
+                    <p style="margin: 0; color: #666;">Tổng doanh thu</p>
+                    <h3 id="stat-revenue" style="margin: 10px 0; color: #2196f3;">0đ</h3>
+                </div>
+                <div style="background: #f1f8e9; padding: 20px; border-radius: 10px; border-left: 5px solid #4caf50;">
+                    <p style="margin: 0; color: #666;">Số đơn hàng</p>
+                    <h3 id="stat-order-count" style="margin: 10px 0; color: #4caf50;">0</h3>
+                </div>
+                <div style="background: #fff3e0; padding: 20px; border-radius: 10px; border-left: 5px solid #ff9800;">
+                    <p style="margin: 0; color: #666;">Sản phẩm đang bán</p>
+                    <h3 id="stat-product-count" style="margin: 10px 0; color: #ff9800;">0</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+            <h3>Sản phẩm bán chạy nhất</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng đã bán</th>
+                        <th>Doanh thu</th>
+                    </tr>
+                </thead>
+                <tbody id="top-products-list"></tbody>
+            </table>
+        </div>
+    </section>
+    </div>
+
+    <script>
+        // Dữ liệu mẫu ban đầu
+        let products = JSON.parse(localStorage.getItem('products_data')) || [
+            { id: 1, name: "Phin Sữa Đá", price: 29000, category: "Cà phê", image: "https://www.highlandscoffee.com.vn/vnt_upload/product/03_2023/PHIN_SUA_DA_1.png" }
+        ];
+
+        // 1. Chuyển đổi Menu
+        function showSection(section) {
+            document.getElementById('products-section').style.display = section === 'products' ? 'block' : 'none';
+            document.getElementById('orders-section').style.display = section === 'orders' ? 'block' : 'none';
+            
+            document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            if(section === 'products') renderProducts();
+            if(section === 'orders') renderOrders();
+        }
+
+        // 2. Logic Sản phẩm
+        function toggleForm() {
+            const form = document.getElementById('product-form');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function renderProducts() {
+            const list = document.getElementById('admin-product-list');
+            list.innerHTML = products.map((p, index) => `
+                <tr>
+                    <td><img src="${p.image}" width="40"></td>
+                    <td>${p.name}</td>
+                    <td>${p.category}</td>
+                    <td>${p.price.toLocaleString()}đ</td>
+                    <td><button class="btn-delete" onclick="deleteProduct(${index})"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+            `).join('');
+            localStorage.setItem('products_data', JSON.stringify(products));
+        }
+
+        function addProduct() {
+            const newP = {
+                id: Date.now(),
+                name: document.getElementById('p-name').value,
+                price: parseInt(document.getElementById('p-price').value),
+                image: document.getElementById('p-img').value || 'https://via.placeholder.com/150',
+                category: document.getElementById('p-cat').value
+            };
+            products.push(newP);
+            renderProducts();
+            toggleForm();
+        }
+
+        function deleteProduct(index) {
+            if(confirm('Bạn muốn xóa sản phẩm này?')) {
+                products.splice(index, 1);
+                renderProducts();
+            }
+        }
+
+        // 3. Logic Đơn hàng (Lấy từ localStorage 'orders' nếu bạn đã làm chức năng Checkout)
+        function renderOrders() {
+            const orders = JSON.parse(localStorage.getItem('all_orders')) || [];
+            const list = document.getElementById('admin-order-list');
+            list.innerHTML = orders.map(o => `
+                <tr>
+                    <td>#${o.id}</td>
+                    <td>${o.customerName}<br><small>${o.phone}</small></td>
+                    <td>${o.items.map(i => i.name).join(', ')}</td>
+                    <td style="color:red; font-weight:bold;">${o.total.toLocaleString()}đ</td>
+                    <td><span class="status-badge status-pending">Đang xử lý</span></td>
+                </tr>
+            `).join('');
+        }
+
+        // Khởi tạo trang
+        window.onload = renderProducts;
+    </script>
+</body>
+</html>
