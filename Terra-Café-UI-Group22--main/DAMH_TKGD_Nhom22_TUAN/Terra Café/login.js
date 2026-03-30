@@ -192,7 +192,7 @@ function handleLogin() {
         console.log('Login data:', { email, password, remember });
         
         // Simulate successful login
-        if (email === 'admin@TerraCafé.com' && password === '123456') {
+        if (email === 'admin@terra.com' && password === '123456') {
             alert('Đăng nhập thành công!');
             // Redirect to dashboard or home page
             window.location.href = 'index.html';
