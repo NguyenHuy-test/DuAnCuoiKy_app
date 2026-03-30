@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt hàng thành công</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #d71920;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 40px;
+        }
+
+        h1 {
+            color: #d71920;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .order-box {
+            background: #f3f3f3;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .order-box span {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #d71920;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #b9151b;
+        }
+
+        .btn-secondary {
+            margin-left: 10px;
+            background: #eee;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="success-icon">✓</div>
+
+        <h1>Đặt hàng thành công!</h1>
+        <p>Cảm ơn bạn đã đặt hàng tại <b>BẢO COFFEE</b> ☕</p>
+
+        <div class="order-box">
+            <span><b>Mã đơn hàng:</b> #HD123456</span>
+            <span><b>Thời gian:</b> <span id="time"></span></span>
+            <span><b>Phương thức:</b> Thanh toán khi nhận hàng (COD)</span>
+        </div>
+
+        <a href="index.html" class="btn">Về trang chủ</a>
+        <a href="order-tracking.html" class="btn btn-secondary">Theo dõi đơn</a>
+
+    </div>
+
+    <script>
+        // hiển thị thời gian hiện tại
+        const now = new Date();
+        document.getElementById("time").innerText = now.toLocaleString("vi-VN");
+
+        // random mã đơn
+        const orderId = "HD" + Math.floor(Math.random() * 1000000);
+        document.querySelector(".order-box span").innerHTML = "<b>Mã đơn hàng:</b> #" + orderId;
+    </script>
+
+</body>
+</html>

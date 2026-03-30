@@ -6,8 +6,8 @@ function createHeader() {
                 <div class="container">
                     <div>
                         <a href="index.html">
-                        <img src="https://i.postimg.cc/wjJ6Ltc0/Logo-TERRA-CAFE-preview.png" style="height: 60px;"/>
-                         
+                        <img src="https://i.postimg.cc/wjJ6Ltc0/Logo-TERRA-CAFE-preview.png" style="height: 60px;"/>                         
+                        
                         </a>
                     </div>
                     <div class="search-section">
@@ -121,6 +121,12 @@ function createHeader() {
                         <a href="./news.html" class="nav-item">
                              <img src="./public/tt.png" alt="Category" style="width: 24px;"/> Tin tức
                         </a>
+                        <a href="order-tracking.html" class="nav-item">
+                             <img src="./public/order.png" style="width: 24px;"/> Theo dõi đơn
+                        </a>
+                        <a href="admin.html" class="nav-item">
+                             <img src="./public/מחירי-דירות-4-חדרים-ב-8-הערים-הגדולות-4.png" style="width: 24px;"/> Admin
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -138,15 +144,15 @@ function createFooter() {
                         <h3>Thông tin công ty</h3>
                          <div>
                         <a href="index.html" style="margin-bottom:20px">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Terra_Café_5G.svg/1200px-Terra_Café_5G.svg.png" style="height: 60px;"/>
-                         
+                        <img src="./public/BeautyPlus-BG-CHANGER-1774790412610.jpg" style="height: 60px;" alt="Bảo Coffee"/>     
+                                               
                         </a>
                         </div>
-                        <p>Terra Café® Quyền thuộc CÔNG TY CỔ PHẦN DỊCH VỤ CÀ PHÊ CAO NGUYÊN được bảo hộ nhãn hiệu phân hạng 43 cho tất cả các sản phẩm mang thương hiệu Terra Café®. Tại các văn phòng:</p>
+                        <p>Highlands Coffee® Quyền thuộc CÔNG TY CỔ PHẦN DỊCH VỤ CÀ PHÊ CAO NGUYÊN được bảo hộ nhãn hiệu phân hạng 43 cho tất cả các sản phẩm mang thương hiệu Highlands Coffee®. Tại các văn phòng:</p>
                         <div class="address">
                             <p><i class="fa fa-map-marker-alt" style="color: #030303ff;"></i> Địa chỉ: 123 Nguyễn Cư Trinh, phường An Lạc Đông, Quận 2, TP Hồ Chí Minh. MSDN: 0309965814 do Sở Kế hoạch - Đầu tư TP Hồ Chí Minh cấp ngày 04/01/2016. Sửa đổi lần thứ 30 ngày 30/08/2022.</p>
                             <p><i class="fa fa-phone" style="color: #030303ff;"></i> Số điện thoại: 1900 1755</p>
-                            <p><i class="fa fa-envelope" style="color: #030303ff;"></i> Email: customerservice@TerraCafé.com.vn</p>
+                            <p><i class="fa fa-envelope" style="color: #030303ff;"></i> Email: customerservice@highlandscoffee.com.vn</p>
                         </div>
                         <div class="social-links">
                             <a href="#" class="social-link facebook"><img src="./public/fb.png"  style="width: 100%;" alt="Facebook"/></a>
@@ -188,7 +194,7 @@ function createFooter() {
                 </div>
 
                 <div class="footer-bottom">
-                    <p>&copy; 2023 Terra Café. All rights reserved | Cung cấp bởi Sapo</p>
+                    <p>&copy; 2023 Highlands Coffee. All rights reserved | Cung cấp bởi Sapo</p>
                 </div>
             </div>
         </footer>

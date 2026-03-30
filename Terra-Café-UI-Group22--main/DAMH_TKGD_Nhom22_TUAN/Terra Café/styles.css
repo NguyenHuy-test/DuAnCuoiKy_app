@@ -3129,3 +3129,49 @@ main .container {
     padding: 30px 0;
   }
 }
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-item:hover {
+    color: #B22A2E;
+    transform: translateY(-2px);
+    transition: 0.2s;
+}
+
+/* MENU HEADER STYLE - HIGHLANDS STYLE */
+.nav-items {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.nav-item img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Hover giống Highlands */
+.nav-item:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+/* Fix icon bị lỗi (icon vỡ như ảnh bạn) */
+.nav-item img[src=""] {
+    display: none;
+}

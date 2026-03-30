@@ -185,7 +185,7 @@ function handlePromoCode() {
 
     // Sample promo codes
     const promoCodes = {
-      TERRA10: { discount: 10, type: "percentage" },
+      HIGHLANDS10: { discount: 10, type: "percentage" },
       FREESHIP: { discount: 30000, type: "fixed" },
       WELCOME: { discount: 50000, type: "fixed" },
     };
@@ -364,4 +364,16 @@ document.addEventListener("click", function (event) {
 document.addEventListener("DOMContentLoaded", function () {
   loadCartData();
   initCheckout();
+});
+document.getElementById("place-order").addEventListener("click", function () {
+    // có thể kiểm tra form nếu muốn
+    const name = document.getElementById("fullName").value;
+
+    if (!name) {
+        alert("Vui lòng nhập họ tên!");
+        return;
+    }
+
+    // chuyển trang
+    window.location.href = "thankyou.html";
 });
