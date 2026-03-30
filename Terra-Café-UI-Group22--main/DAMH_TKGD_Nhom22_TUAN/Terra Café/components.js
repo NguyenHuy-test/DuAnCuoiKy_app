@@ -148,10 +148,10 @@ function createFooter() {
                                                
                         </a>
                         </div>
-                        <p>Highlands Coffee® Quyền thuộc CÔNG TY CỔ PHẦN DỊCH VỤ CÀ PHÊ CAO NGUYÊN được bảo hộ nhãn hiệu phân hạng 43 cho tất cả các sản phẩm mang thương hiệu Highlands Coffee®. Tại các văn phòng:</p>
+                        <p>Highlands Coffee® Quyền thuộc CÔNG TY CỔ PHẦN DỊCH VỤ CÀ PHÊ A được bảo hộ nhãn hiệu phân hạng 43 cho tất cả các sản phẩm mang thương hiệu Highlands Coffee®. Tại các văn phòng:</p>
                         <div class="address">
-                            <p><i class="fa fa-map-marker-alt" style="color: #030303ff;"></i> Địa chỉ: 123 Nguyễn Cư Trinh, phường An Lạc Đông, Quận 2, TP Hồ Chí Minh. MSDN: 0309965814 do Sở Kế hoạch - Đầu tư TP Hồ Chí Minh cấp ngày 04/01/2016. Sửa đổi lần thứ 30 ngày 30/08/2022.</p>
-                            <p><i class="fa fa-phone" style="color: #030303ff;"></i> Số điện thoại: 1900 1755</p>
+                            <p><i class="fa fa-map-marker-alt" style="color: #030303ff;"></i> Địa chỉ: XXX Nguyễn Cư Trinh, phường Bình Trưng Đông, Quận 2, TP Hồ Chí Minh. MSDN: 03xxxxxxxx do Sở Kế hoạch - Đầu tư TP Hồ Chí Minh cấp ngày 01/04/2026.</p>
+                            <p><i class="fa fa-phone" style="color: #030303ff;"></i> Số điện thoại: 1900 XXXX</p>
                             <p><i class="fa fa-envelope" style="color: #030303ff;"></i> Email: customerservice@highlandscoffee.com.vn</p>
                         </div>
                         <div class="social-links">
