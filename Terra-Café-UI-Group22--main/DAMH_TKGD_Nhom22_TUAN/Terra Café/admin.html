@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --primary: #b22a2e; --dark: #53382c; --light: #f8f9fa; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; background: #eee; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #eee; }
         
         /* Sidebar */
         .sidebar { width: 250px; height: 100vh; background: var(--dark); color: white; position: fixed; }
@@ -17,8 +17,9 @@
         .menu-item i { margin-right: 15px; width: 20px; }
 
         /* Main Content */
-        .main-content { margin-left: 250px; width: calc(100% - 250px); padding: 30px; }
-        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .main-content { margin-left: 250px; padding: 30px; }
+        .main-content { min-width: 100%;}
+        .card { width: 100%; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
         
         /* Table Styles */
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
@@ -45,9 +46,11 @@
         
         <div class="menu-item" onclick="showSection('dashboard')"><i class="fa-solid fa-chart-line"></i> Thống kê</div>
         
-        <div class="menu-item" onclick="localStorage.clear(); location.reload();"><i class="fa-solid fa-arrow-rotate-left"></i> Reset System</div>
+        <div class="menu-item" onclick="localStorage.clear(); location.reload();"><i class="fa-solid fa-arrow-rotate-left"></i> Reset System</div>  
+        <div class="menu-item" onclick="goHome()">
+            <i class="fa-solid fa-house"></i> Trang chính
     </div>
-
+    </div> 
     <div class="main-content">
         <section id="products-section">
             <div class="card">
@@ -137,7 +140,11 @@
     <script>
         // Dữ liệu mẫu ban đầu
         let products = JSON.parse(localStorage.getItem('products_data')) || [
+<<<<<<< HEAD
             { id: 1, name: "Terra Sữa Đá", price: 29000, category: "Cà phê", image: "https://www.Terra Café.com.vn/vnt_upload/product/03_2023/Terra Café_SUA_DA_1.png" }
+=======
+            { id: 1, name: "Phin Sữa Đá", price: 29000, category: "Cà phê", image: "https://www.highlandscoffee.com.vn/vnt_upload/product/03_2023/PHIN_SUA_DA_1.png" }
+>>>>>>> 2ee125aa974db8018d9dbca7bedee5fe86a04fa2
         ];
 
         // 1. Chuyển đổi Menu
@@ -209,6 +216,10 @@
 
         // Khởi tạo trang
         window.onload = renderProducts;
+
+        function goHome() {
+    window.location.href = "index.html";
+        }
     </script>
 </body>
 </html>
