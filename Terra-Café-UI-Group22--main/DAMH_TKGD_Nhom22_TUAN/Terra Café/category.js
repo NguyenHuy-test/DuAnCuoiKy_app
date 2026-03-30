@@ -275,8 +275,8 @@ document.addEventListener("DOMContentLoaded", function () {
     card.onclick = () => goToProductDetail(product.id);
 
     const badgeHtml = product.badge
-      ? `<div class="product-badge">${product.badge}</div>`
-      : "";
+      ? <div class="product-badge">${product.badge}</div>`
+       "";
 
     card.innerHTML = `
             <div class="product-image">
