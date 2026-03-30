@@ -185,7 +185,7 @@ function handlePromoCode() {
 
     // Sample promo codes
     const promoCodes = {
-      HIGHLANDS10: { discount: 10, type: "percentage" },
+      TERRA10: { discount: 10, type: "percentage" },
       FREESHIP: { discount: 30000, type: "fixed" },
       WELCOME: { discount: 50000, type: "fixed" },
     };

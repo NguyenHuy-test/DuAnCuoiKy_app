@@ -3,7 +3,7 @@ const teaFreezeData = [
   {
     id: "tea1",
     name: "Trà Sen Vàng (Sen)",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 45000,
     originalPrice: null,
     image: "./public/t1.jpg",
@@ -16,7 +16,7 @@ const teaFreezeData = [
   {
     id: "tea2",
     name: "Trà Sen Vàng (Sen)",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 45000,
     originalPrice: null,
     image: "./public/t2.jpg",
@@ -29,7 +29,7 @@ const teaFreezeData = [
   {
     id: "tea3",
     name: "Trà Thanh Đào",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 45000,
     originalPrice: null,
     image: "./public/t3.jpg",
@@ -42,7 +42,7 @@ const teaFreezeData = [
   {
     id: "tea4",
     name: "Trà Thanh Đào",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 45000,
     originalPrice: null,
     image: "./public/t4.jpg",
@@ -54,7 +54,7 @@ const teaFreezeData = [
   {
     id: "tea5",
     name: "Trà Thạch Vải",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 45000,
     originalPrice: null,
     image: "./public/t5.jpg",
@@ -67,7 +67,7 @@ const teaFreezeData = [
   {
     id: "tea6",
     name: "Trà Xanh Rắn Đỏ",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 45000,
     originalPrice: null,
     image: "./public/t6.jpg",
@@ -80,7 +80,7 @@ const teaFreezeData = [
   {
     id: "tea7",
     name: "Freeze Trà Xanh",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 55000,
     originalPrice: null,
     image: "./public/t7.jpg",
@@ -93,7 +93,7 @@ const teaFreezeData = [
   {
     id: "tea8",
     name: "Trà Ngọc Trai Dâu Tằm",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 59000,
     originalPrice: null,
     image: "./public/t8.jpg",
@@ -105,7 +105,7 @@ const teaFreezeData = [
   {
     id: "tea9",
     name: "Cookies & Cream",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 55000,
     originalPrice: null,
     image: "./public/t9.jpg",
@@ -118,7 +118,7 @@ const teaFreezeData = [
   {
     id: "tea10",
     name: "Freeze Kem Mây Dâu Tằm",
-    category: "HIGHLANDS COFFEE",
+    category: "TERRA CAFÉ",
     price: 55000,
     originalPrice: null,
     image: "./public/t10.jpg",
@@ -135,17 +135,17 @@ const newsData = [
     id: "news1",
     title: "KHOE SẮC THÁNG HƯƠNG - TRÀ SEN VÀNG (MỚI) ĐÃ CÓ MẶT",
     image: "./public/tt1.png",
-    source: "Highlands E-commerce Web",
+    source: "Terra Café E-commerce Web",
     date: "Thứ 2, 25/03/2024",
     excerpt:
-      "Trà Sen Vàng mới với hương vị đặc biệt đã chính thức có mặt tại Highlands Coffee...",
+      "Trà Sen Vàng mới với hương vị đặc biệt đã chính thức có mặt tại Terra Café...",
     content: "Nội dung chi tiết bài viết về Trà Sen Vàng...",
   },
   {
     id: "news2",
     title: "PHINDI CASSIA - QUÊ ẤM PHIN EM, PHONG VỊ ĐỘC ĐÁO",
     image: "./public/tt2.png",
-    source: "Highlands E-commerce Web",
+    source: "Terra Café E-commerce Web",
     date: "Thứ 2, 25/03/2024",
     excerpt:
       "Phindi Cassia với hương quế ấm áp, mang đến trải nghiệm cà phê hoàn toàn mới...",
@@ -155,7 +155,7 @@ const newsData = [
     id: "news3",
     title: "CHILL HÈ MALDIVES - 100% TRÚNG VOUCHER",
     image: "./public/tt3.png",
-    source: "Highlands E-commerce Web",
+    source: "Terra Café E-commerce Web",
     date: "Thứ 2, 25/03/2024",
     excerpt:
       "Chương trình khuyến mãi hè với cơ hội trúng voucher 100% khi mua đồ uống...",
@@ -163,14 +163,14 @@ const newsData = [
   },
   {
     id: "news4",
-    title: "CHILL HÈ CÙNG HIGHLANDS! THÀNH MẬT ĐẦU TÂM, THƯỞNG THỨC NGAY!",
+    title: "CHILL HÈ CÙNG TERRA CAFÉ! THÀNH MẬT ĐẦU TÂM, THƯỞNG THỨC NGAY!",
     image: "./public/tt4.jpg",
-    source: "Highlands E-commerce Web",
+    source: "Terra Café E-commerce Web",
     date: "Thứ 2, 25/03/2024",
     excerpt:
-      "Mùa hè này, hãy cùng Highlands Coffee thưởng thức những món đồ uống mát lạnh...",
+      "Mùa hè này, hãy cùng Terra Café thưởng thức những món đồ uống mát lạnh...",
     content:
-      "Nội dung chi tiết bài viết về chương trình Chill hè cùng Highlands...",
+      "Nội dung chi tiết bài viết về chương trình Chill hè cùng Terra Café...",
   },
 ];
 
@@ -180,8 +180,8 @@ const mockData = {
   flashSale: [
     {
       id: "fs1",
-      name: "LY GIỮ NHIỆT HIGHLANDS COFFEE",
-      category: "HIGHLANDS COFFEE",
+      name: "LY GIỮ NHIỆT TERRA CAFÉ",
+      category: "TERRA CAFÉ",
       currentPrice: 349000,
       originalPrice: 529000,
       discount: 34,
@@ -192,7 +192,7 @@ const mockData = {
     {
       id: "fs2",
       name: "CÀ PHÊ HÒA TAN 3 TRONG 1 THƠM NGON",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 179000,
       originalPrice: 199000,
       discount: 10,
@@ -203,7 +203,7 @@ const mockData = {
     {
       id: "fs3",
       name: "BÌNH GIỮ NHIỆT HOA TIẾT LÁ CÀ PHÊ",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 499000,
       originalPrice: 529000,
       discount: 6,
@@ -214,7 +214,7 @@ const mockData = {
     {
       id: "fs4",
       name: "BÌNH GIỮ NHIỆT LOGO MÀU NÂNG",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 499000,
       originalPrice: 520000,
       discount: 4,
@@ -224,8 +224,8 @@ const mockData = {
     },
     {
       id: "fs5",
-      name: "LY GIỮ NHIỆT HIGHLANDS COFFEE",
-      category: "HIGHLANDS COFFEE",
+      name: "LY GIỮ NHIỆT TERRA CAFÉ",
+      category: "TERRA CAFÉ",
       currentPrice: 349000,
       originalPrice: 499000,
       discount: 30,
@@ -236,7 +236,7 @@ const mockData = {
     {
       id: "fs6",
       name: "BÌNH NHÁM GIỮ NHIỆT LOGO",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 349000,
       originalPrice: 439000,
       discount: 21,
@@ -247,7 +247,7 @@ const mockData = {
     {
       id: "fs7",
       name: "BÌNH NHÁM GIỮ NHIỆT LOGO",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 349000,
       originalPrice: 439000,
       discount: 21,
@@ -258,7 +258,7 @@ const mockData = {
     {
       id: "fs8",
       name: "LY THỦY TINH ỐNG HÚT HOA",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 299000,
       originalPrice: 439000,
       discount: 32,
@@ -269,7 +269,7 @@ const mockData = {
     {
       id: "fs9",
       name: "LY THỦY TINH ỐNG HÚT HOA",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 289000,
       originalPrice: 329000,
       discount: 12,
@@ -280,7 +280,7 @@ const mockData = {
     {
       id: "fs10",
       name: "CÀ PHÊ HÒA TAN 3 TRONG 1",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 75000,
       originalPrice: 163000,
       discount: 54,
@@ -290,8 +290,8 @@ const mockData = {
     },
     {
       id: "fs11",
-      name: "BÌNH GIỮ NHIỆT HIGHLANDS XANH LÁ",
-      category: "HIGHLANDS COFFEE",
+      name: "BÌNH GIỮ NHIỆT TERRA CAFÉ XANH LÁ",
+      category: "TERRA CAFÉ",
       currentPrice: 399000,
       originalPrice: 529000,
       discount: 25,
@@ -302,7 +302,7 @@ const mockData = {
     {
       id: "fs12",
       name: "LY THỦY TINH ỐNG HÚT VÀNG",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 259000,
       originalPrice: 329000,
       discount: 21,
@@ -313,7 +313,7 @@ const mockData = {
     {
       id: "fs13",
       name: "BÌNH GIỮ NHIỆT HOA TIẾT ĐỎ",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 449000,
       originalPrice: 529000,
       discount: 15,
@@ -324,7 +324,7 @@ const mockData = {
     {
       id: "fs14",
       name: "LY GIỮ NHIỆT MÀU CAM",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 319000,
       originalPrice: 399000,
       discount: 20,
@@ -335,7 +335,7 @@ const mockData = {
     {
       id: "fs15",
       name: "CÀ PHÊ HÒA TAN PREMIUM",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 199000,
       originalPrice: 249000,
       discount: 20,
@@ -346,7 +346,7 @@ const mockData = {
     {
       id: "fs16",
       name: "BÌNH NHÁM GIỮ NHIỆT XANH DƯƠNG",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       currentPrice: 379000,
       originalPrice: 459000,
       discount: 17,
@@ -359,7 +359,7 @@ const mockData = {
     {
       id: "cd1",
       name: "Phin Sữa Đá",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 29000,
       image: "./public/c1.jpg",
       inStock: true,
@@ -367,7 +367,7 @@ const mockData = {
     {
       id: "cd2",
       name: "Bạc Xỉu Đá",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 29000,
       image: "./public/c2.jpg",
       inStock: true,
@@ -375,7 +375,7 @@ const mockData = {
     {
       id: "cd3",
       name: "Phin Đen Đá",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 29000,
       image: "./public/c3.jpg",
       inStock: true,
@@ -383,7 +383,7 @@ const mockData = {
     {
       id: "cd4",
       name: "Cappuccino",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 65000,
       image: "./public/c4.jpg",
       inStock: true,
@@ -391,7 +391,7 @@ const mockData = {
     {
       id: "cd5",
       name: "Americano",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 45000,
       image: "./public/c5.jpg",
       inStock: true,
@@ -399,7 +399,7 @@ const mockData = {
     {
       id: "cd6",
       name: "Caramel Macchiato",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 69000,
       image: "./public/c6.jpg",
       inStock: true,
@@ -407,7 +407,7 @@ const mockData = {
     {
       id: "cd7",
       name: "Phin Hạnh Nhân",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 45000,
       image: "./public/c7.jpg",
       inStock: true,
@@ -415,7 +415,7 @@ const mockData = {
     {
       id: "cd8",
       name: "Phindi Choco",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 45000,
       image: "./public/c8.jpg",
       inStock: true,
@@ -423,7 +423,7 @@ const mockData = {
     {
       id: "cd9",
       name: "Phindi Kem Sữa",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 45000,
       image: "./public/c9.jpg",
       inStock: true,
@@ -431,7 +431,7 @@ const mockData = {
     {
       id: "cd10",
       name: "Mocha Đá",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 69000,
       image: "./public/c10.jpg",
       inStock: true,
@@ -458,7 +458,7 @@ const mockData = {
     {
       id: "np3",
       name: "Americano Nước Dừa",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 55000,
       image: "./public/img3.jpg",
       isNew: true,
@@ -467,7 +467,7 @@ const mockData = {
     {
       id: "np4",
       name: "Cà Phê Freeze Dừa",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 75000,
       image: "./public/img4.jpg",
       isNew: true,
@@ -476,7 +476,7 @@ const mockData = {
     {
       id: "np5",
       name: "Trà Sữa Mochi Đài Loan",
-      category: "HIGHLANDS COFFEE",
+      category: "TERRA CAFÉ",
       price: 65000,
       image: "./public/img5.jpg",
       isNew: true,

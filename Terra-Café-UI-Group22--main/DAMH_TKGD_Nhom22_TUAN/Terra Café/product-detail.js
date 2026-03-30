@@ -101,7 +101,7 @@ function loadProductDetail() {
 // Populate product details in the page
 function populateProductDetails(product) {
   // Update page title
-  document.title = `${product.name} - Highlands Coffee`;
+  document.title = `${product.name} - Terra Café`;
 
   // Update breadcrumb
   document.getElementById("product-breadcrumb").textContent = product.name;
@@ -173,7 +173,7 @@ function getProductDescription(product) {
       "Thưởng thức hương vị cà phê đậm đà, được pha chế từ những hạt cà phê chất lượng cao. Mang đến trải nghiệm tuyệt vời cho những ai yêu thích cà phê.",
     Trà: "Trà thơm ngon được pha chế từ lá trà tươi ngon, mang đến hương vị thanh mát và sảng khoái.",
     "Đá xay":
-      "Thức uống đá xay mát lạnh, hoàn hảo cho những ngày nóng bức. Được pha chế với công thức độc quyền của Highlands Coffee.",
+      "Thức uống đá xay mát lạnh, hoàn hảo cho những ngày nóng bức. Được pha chế với công thức độc quyền của Terra Café.",
     "Bánh ngọt":
       "Bánh ngọt thơm ngon được làm từ nguyên liệu tươi ngon, hoàn hảo để thưởng thức cùng cà phê.",
     "Bánh mặn":
@@ -182,7 +182,7 @@ function getProductDescription(product) {
 
   return (
     descriptions[product.category] ||
-    "Sản phẩm chất lượng cao từ Highlands Coffee."
+    "Sản phẩm chất lượng cao từ Terra Café."
   );
 }
 
@@ -468,7 +468,7 @@ function loadProductDescription(product) {
 
   if (product.category === "Cà phê") {
     description = `
-      <p><strong>${product.name}</strong> là một trong những sản phẩm đặc trưng của Highlands Coffee, được pha chế từ những hạt cà phê chất lượng cao được tuyển chọn kỹ lưỡng.</p>
+      <p><strong>${product.name}</strong> là một trong những sản phẩm đặc trưng của Terra Café, được pha chế từ những hạt cà phê chất lượng cao được tuyển chọn kỹ lưỡng.</p>
       <p>Với hương vị đậm đà, thơm ngon và độ cân bằng hoàn hảo, ${product.name} mang đến trải nghiệm cà phê tuyệt vời cho mọi khách hàng.</p>
       <p><strong>Đặc điểm nổi bật:</strong></p>
       <ul>
@@ -481,7 +481,7 @@ function loadProductDescription(product) {
   } else if (product.category === "Trà") {
     description = `
       <p><strong>${product.name}</strong> là sự kết hợp hoàn hảo giữa trà chất lượng cao và các nguyên liệu tự nhiên, mang đến hương vị tươi mát và thanh khiết.</p>
-      <p>Được pha chế theo công thức độc quyền của Highlands Coffee, ${product.name} là lựa chọn lý tưởng cho những ai yêu thích sự nhẹ nhàng và tinh tế.</p>
+      <p>Được pha chế theo công thức độc quyền của Terra Café, ${product.name} là lựa chọn lý tưởng cho những ai yêu thích sự nhẹ nhàng và tinh tế.</p>
       <p><strong>Đặc điểm nổi bật:</strong></p>
       <ul>
         <li>Lá trà chất lượng cao, được tuyển chọn kỹ lưỡng</li>
@@ -497,14 +497,14 @@ function loadProductDescription(product) {
       <p><strong>Đặc điểm nổi bật:</strong></p>
       <ul>
         <li>Nguyên liệu tươi ngon, chất lượng cao</li>
-        <li>Công thức độc quyền của Highlands Coffee</li>
+        <li>Công thức độc quyền của Terra Café</li>
         <li>Kết cấu mềm mại, hương vị đậm đà</li>
         <li>Phù hợp làm món ăn kèm hoặc thưởng thức riêng</li>
       </ul>
     `;
   } else {
     description = `
-      <p><strong>${product.name}</strong> là một trong những sản phẩm chất lượng cao của Highlands Coffee, được chế biến với sự tỉ mỉ và tâm huyết.</p>
+      <p><strong>${product.name}</strong> là một trong những sản phẩm chất lượng cao của Terra Café, được chế biến với sự tỉ mỉ và tâm huyết.</p>
       <p>Mang đến trải nghiệm tuyệt vời cho khách hàng với hương vị độc đáo và chất lượng đảm bảo.</p>
       <p><strong>Đặc điểm nổi bật:</strong></p>
       <ul>
@@ -546,7 +546,7 @@ function loadBakerySidebar() {
           <img src="${product.image}" alt="${product.name}" />
         </div>
         <div class="bakery-item-info">
-          <div class="bakery-item-brand">HIGHLANDS COFFEE</div>
+          <div class="bakery-item-brand">TERRA CAFÉ</div>
           <div class="bakery-item-name">${product.name}</div>
           <div class="bakery-item-price">${formatPrice(product.price)}</div>
         </div>
@@ -589,7 +589,7 @@ function loadSameCategoryProducts(currentProduct) {
           <img src="${product.image}" alt="${product.name}" />
         </div>
         <div class="product-info">
-          <p class="product-category">HIGHLANDS COFFEE</p>
+          <p class="product-category">TERRA CAFÉ</p>
           <h3 class="product-name">${product.name}</h3>
           <div class="product-price">
             <span class="price">${formatPrice(product.price)}</span>

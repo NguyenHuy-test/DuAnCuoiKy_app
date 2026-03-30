@@ -347,8 +347,8 @@ function setupSupportButtons() {
       const buttonText = this.textContent;
 
       switch (buttonText) {
-        case "Về Thẻ Highlands Coffee":
-          alert("Thông tin về thẻ Highlands Coffee sẽ được hiển thị tại đây.");
+        case "Về Thẻ Terra Café":
+          alert("Thông tin về thẻ Terra Café sẽ được hiển thị tại đây.");
           break;
         case "Điều khoản sử dụng":
           alert("Điều khoản sử dụng sẽ được hiển thị tại đây.");

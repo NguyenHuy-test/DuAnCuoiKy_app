@@ -588,7 +588,7 @@
 
       // Migrate old cart data and clean up
       function migrateCartData() {
-        const oldCart = localStorage.getItem("highlands_cart");
+        const oldCart = localStorage.getItem("terra_cart");
         const newCart = localStorage.getItem("cart");
 
         // If old cart exists but new cart is empty, migrate data
@@ -597,7 +597,7 @@
         }
 
         // Remove old cart key
-        localStorage.removeItem("highlands_cart");
+        localStorage.removeItem("terra_cart");
       }
 
       // Load cart content after components are loaded

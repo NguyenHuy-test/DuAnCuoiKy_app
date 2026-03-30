@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (viewLargerMapLink) {
             viewLargerMapLink.addEventListener('click', function(e) {
                 e.preventDefault();
-                window.open('https://maps.google.com/maps?q=Highlands+Coffee+Saigon&hl=vi', '_blank');
+                window.open('https://maps.google.com/maps?q=Terra+Café+Saigon&hl=vi', '_blank');
             });
         }
     }
