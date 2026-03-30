@@ -20,14 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Coffee products
     {
       id: 1,
-      name: "Phin Sữa Đá",
+      name: "Terra Café Sữa Đá",
       price: 29000,
       category: "coffee",
       image: "./public/c1.jpg",
     },
     {
       id: 2,
-      name: "Phin Đen Đá",
+      name: "Terra Café Đen Đá",
       price: 25000,
       category: "coffee",
       image: "./public/c3.jpg",
@@ -69,14 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       id: 8,
-      name: "Phin Sữa Nóng",
+      name: "Terra Café Sữa Nóng",
       price: 29000,
       category: "coffee",
       image: "./public/c1.jpg",
     },
     {
       id: 9,
-      name: "Phin Đen Nóng",
+      name: "Terra Café Đen Nóng",
       price: 25000,
       category: "coffee",
       image: "./public/c3.jpg",

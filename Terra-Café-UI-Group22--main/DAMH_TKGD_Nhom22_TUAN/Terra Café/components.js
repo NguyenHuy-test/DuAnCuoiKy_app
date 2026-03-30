@@ -77,7 +77,7 @@ function createHeader() {
                                     </a>
                                     <a href="category.html?category=other" class="dropdown-item">
                                         <span class="item-icon">🥤</span>
-                                        <span>Phindi</span>
+                                        <span>Terra Café</span>
                                     </a>
                                     <a href="category.html?category=food" class="dropdown-item">
                                         <span class="item-icon">🥖</span>

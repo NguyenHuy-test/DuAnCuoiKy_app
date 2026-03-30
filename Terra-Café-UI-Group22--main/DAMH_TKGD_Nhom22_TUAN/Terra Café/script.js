@@ -136,27 +136,27 @@ const newsData = [
     title: "KHOE SẮC THÁNG HƯƠNG - TRÀ SEN VÀNG (MỚI) ĐÃ CÓ MẶT",
     image: "./public/tt1.png",
     source: "Terra Café E-commerce Web",
-    date: "Thứ 2, 25/03/2024",
+    date: "Thứ 2, 25/03/2026",
     excerpt:
       "Trà Sen Vàng mới với hương vị đặc biệt đã chính thức có mặt tại Terra Café...",
     content: "Nội dung chi tiết bài viết về Trà Sen Vàng...",
   },
   {
     id: "news2",
-    title: "PHINDI CASSIA - QUÊ ẤM PHIN EM, PHONG VỊ ĐỘC ĐÁO",
+    title: "Terra Café CASSIA - QUÊ ẤM Terra Café EM, PHONG VỊ ĐỘC ĐÁO",
     image: "./public/tt2.png",
     source: "Terra Café E-commerce Web",
-    date: "Thứ 2, 25/03/2024",
+    date: "Thứ 2, 25/03/2026",
     excerpt:
-      "Phindi Cassia với hương quế ấm áp, mang đến trải nghiệm cà phê hoàn toàn mới...",
-    content: "Nội dung chi tiết bài viết về Phindi Cassia...",
+      "Terra Café Cassia với hương quế ấm áp, mang đến trải nghiệm cà phê hoàn toàn mới...",
+    content: "Nội dung chi tiết bài viết về Terra Café Cassia...",
   },
   {
     id: "news3",
     title: "CHILL HÈ MALDIVES - 100% TRÚNG VOUCHER",
     image: "./public/tt3.png",
     source: "Terra Café E-commerce Web",
-    date: "Thứ 2, 25/03/2024",
+    date: "Thứ 2, 25/03/2026",
     excerpt:
       "Chương trình khuyến mãi hè với cơ hội trúng voucher 100% khi mua đồ uống...",
     content: "Nội dung chi tiết bài viết về chương trình Chill hè Maldives...",
@@ -166,7 +166,7 @@ const newsData = [
     title: "CHILL HÈ CÙNG TERRA CAFÉ! THÀNH MẬT ĐẦU TÂM, THƯỞNG THỨC NGAY!",
     image: "./public/tt4.jpg",
     source: "Terra Café E-commerce Web",
-    date: "Thứ 2, 25/03/2024",
+    date: "Thứ 2, 25/03/2026",
     excerpt:
       "Mùa hè này, hãy cùng Terra Café thưởng thức những món đồ uống mát lạnh...",
     content:
@@ -358,7 +358,7 @@ const mockData = {
   coffeeDaily: [
     {
       id: "cd1",
-      name: "Phin Sữa Đá",
+      name: "Terra Café Sữa Đá",
       category: "TERRA CAFÉ",
       price: 29000,
       image: "./public/c1.jpg",
@@ -374,7 +374,7 @@ const mockData = {
     },
     {
       id: "cd3",
-      name: "Phin Đen Đá",
+      name: "Terra Café Đen Đá",
       category: "TERRA CAFÉ",
       price: 29000,
       image: "./public/c3.jpg",
@@ -406,7 +406,7 @@ const mockData = {
     },
     {
       id: "cd7",
-      name: "Phin Hạnh Nhân",
+      name: "Terra Café Hạnh Nhân",
       category: "TERRA CAFÉ",
       price: 45000,
       image: "./public/c7.jpg",
@@ -414,7 +414,7 @@ const mockData = {
     },
     {
       id: "cd8",
-      name: "Phindi Choco",
+      name: "Terra Café Choco",
       category: "TERRA CAFÉ",
       price: 45000,
       image: "./public/c8.jpg",
@@ -422,7 +422,7 @@ const mockData = {
     },
     {
       id: "cd9",
-      name: "Phindi Kem Sữa",
+      name: "Terra Café Kem Sữa",
       category: "TERRA CAFÉ",
       price: 45000,
       image: "./public/c9.jpg",
@@ -440,8 +440,8 @@ const mockData = {
   newProducts: [
     {
       id: "np1",
-      name: "Phindi Xoài Dừa",
-      category: "PHINDI COFFEE",
+      name: "Terra Café Xoài Dừa",
+      category: "Terra Café COFFEE",
       price: 55000,
       image: "./public/img1.jpg",
       inStock: true,
@@ -449,7 +449,7 @@ const mockData = {
     {
       id: "np2",
       name: "Phan Sữa Dừa",
-      category: "PHINDI COFFEE",
+      category: "Terra Café COFFEE",
       price: 55000,
       image: "./public/img2.jpg",
       isNew: true,

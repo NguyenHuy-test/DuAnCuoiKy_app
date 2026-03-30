@@ -7,7 +7,7 @@ const newsData = {
       title: "KHOE SẮC THĂNG HƯƠNG - TRÀ SEN VÀNG (MỚI) ĐÃ CÓ MẶT",
       image: "./public/n1.jpg",
       source: "Terra Café Ecommerce Web",
-      date: "Thứ Hai, 16/12/2024",
+      date: "Thứ Hai, 16/3/2026",
       excerpt:
         "Khám phá hương vị mới lạ của trà sen vàng với công thức độc quyền từ Terra Café...",
       link: "#",
@@ -15,12 +15,12 @@ const newsData = {
     },
     {
       id: 2,
-      title: "PHINDI CASSIA - QUÊ ẤM PHIM EM, PHONG VỊ ĐỘC ĐÁO",
+      title: "Terra Café CASSIA - QUÊ ẤM PHIM EM, PHONG VỊ ĐỘC ĐÁO",
       image: "./public/n2.png",
       source: "Terra Café Ecommerce Web",
-      date: "Thứ Hai, 16/12/2024",
+      date: "Thứ Hai, 16/4/2026",
       excerpt:
-        "Phindi Cassia mang đến hương vị quế ấm áp, tạo nên trải nghiệm cà phê độc đáo...",
+        "Terra Café Cassia mang đến hương vị quế ấm áp, tạo nên trải nghiệm cà phê độc đáo...",
       link: "#",
       category: "Sản phẩm mới",
     },
@@ -29,7 +29,7 @@ const newsData = {
       title: "CHILL HÈ MALDIVES - 100% TRÚNG VOUCHER",
       image: "./public/n3.png",
       source: "Terra Café Ecommerce Web",
-      date: "Thứ Hai, 16/12/2024",
+      date: "Thứ Hai, 16/3/2026",
       excerpt:
         "Chương trình khuyến mãi hè với cơ hội trúng voucher 100% khi mua đồ uống...",
       link: "#",
@@ -40,7 +40,7 @@ const newsData = {
       title: "CHILL HÈ CÙNG Terra Café! THÀNH MẬT ĐẦU TÂM, THƯỞNG THỨC NGAY!",
       image: "./public/n4.jpg",
       source: "Terra Café Ecommerce Web",
-      date: "Thứ Hai, 16/12/2024",
+      date: "Thứ Hai, 16/3/2026",
       excerpt:
         "Mùa hè này, hãy cùng Terra Café thưởng thức những ly đồ uống mát lạnh...",
       link: "#",
@@ -51,7 +51,7 @@ const newsData = {
       title: "[HOT SALE] TERRA CAFÉ GIẢM 50% CHO BÌNH XINH - LY ĐẸP",
       image: "./public/n5.jpg",
       source: "Terra Café Ecommerce Web",
-      date: "Thứ Hai, 16/12/2024",
+      date: "Thứ Hai, 16/4/2026",
       excerpt:
         "Chương trình giảm giá đặc biệt cho các sản phẩm bình và ly cao cấp...",
       link: "#",
@@ -62,7 +62,7 @@ const newsData = {
       title: "MỪNG QUỐC TẾ PHỤ NỮ 8/3 - TERRA CAFÉ KHAO DEAL MUA 1 TẶNG 1",
       image: "./public/n6.png",
       source: "Terra Café Ecommerce Web",
-      date: "Thứ Hai, 16/12/2024",
+      date: "Thứ Hai, 16/3/2026",
       excerpt:
         "Chào mừng ngày Quốc tế Phụ nữ với ưu đãi đặc biệt mua 1 tặng 1...",
       link: "#",
@@ -80,7 +80,7 @@ const newsData = {
     },
     {
       id: 2,
-      title: "PHINDI CASSIA - QUÊ ẤM PHIM EM, PHONG VỊ ĐỘC ĐÁO",
+      title: "Terra Café CASSIA - QUÊ ẤM PHIM EM, PHONG VỊ ĐỘC ĐÁO",
       image: "./public/n2.png",
       link: "#",
     },

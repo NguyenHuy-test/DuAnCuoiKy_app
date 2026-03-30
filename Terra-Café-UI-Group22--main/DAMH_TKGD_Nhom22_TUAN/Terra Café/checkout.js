@@ -5,7 +5,7 @@ const checkoutData = {
   items: [
     {
       id: "item1",
-      name: "Phindi Xoài Đào",
+      name: "Terra Café Xoài Đào",
       price: 59000,
       quantity: 1,
       image: "https://via.placeholder.com/50x50/FFB6C1/FFFFFF?text=PXD",
@@ -26,7 +26,7 @@ const checkoutData = {
     },
     {
       id: "item4",
-      name: "Phindi Choco",
+      name: "Terra Café Choco",
       price: 45000,
       quantity: 1,
       image: "https://via.placeholder.com/50x50/D2B48C/FFFFFF?text=PC",

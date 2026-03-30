@@ -615,11 +615,11 @@ function initializePage() {
       // Coffee products
       {
         id: 101,
-        name: "Phin Sữa Đá",
+        name: "Terra Café Sữa Đá",
         category: "Cà phê",
         price: 29000,
         image: "./public/c1.jpg",
-        description: "Cà phê phin truyền thống với sữa đá thơm ngon.",
+        description: "Cà phê Terra Café truyền thống với sữa đá thơm ngon.",
       },
       {
         id: 102,
