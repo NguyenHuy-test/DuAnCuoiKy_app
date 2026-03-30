@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("category-title").textContent = categoryName;
     document.getElementById("category-breadcrumb").textContent = categoryName;
-    document.title = `${categoryName} - Highlands Coffee`;
+    document.title = `${categoryName} - Terra Café;
   }
 
   // Filter products by category
