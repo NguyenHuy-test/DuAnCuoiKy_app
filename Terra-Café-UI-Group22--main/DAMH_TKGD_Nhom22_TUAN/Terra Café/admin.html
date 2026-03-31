@@ -41,12 +41,11 @@
 
     <div class="sidebar">
         <div class="sidebar-header"><h3>ADMIN Terra Café</h3></div>
-        <div class="menu-item active" onclick="showSection('products')"><i class="fa-solid fa-mug-hot"></i> Sản phẩm</div>
+        <div class="menu-item active" onclick="showSection('products')"><i class="fa-solid fa-mug-hot"></i> Sản phẩm </div>
         <div class="menu-item" onclick="showSection('orders')"><i class="fa-solid fa-cart-shopping"></i> Đơn hàng</div>
         
         <div class="menu-item" onclick="showSection('dashboard')"><i class="fa-solid fa-chart-line"></i> Thống kê</div>
         
-        <div class="menu-item" onclick="localStorage.clear(); location.reload();"><i class="fa-solid fa-arrow-rotate-left"></i> Reset System</div>  
         <div class="menu-item" onclick="goHome()">
             <i class="fa-solid fa-house"></i> Trang chính
     </div>
@@ -66,7 +65,7 @@
                         <option value="Trà">Trà</option>
                         <option value="Freeze">Freeze</option>
                     </select>
-                    <button class="btn btn-add" onclick="addProduct()">Lưu sản phẩm</button>
+                    <button type="button" class="btn btn-add" onclick="addProduct()">Lưu sản phẩm</button>
                 </div>
 
                 <table>
@@ -89,13 +88,14 @@
                 <h2>Danh sách đơn hàng mới</h2>
                 <table>
                     <thead>
-                        <tr>
-                            <th>Mã ĐH</th>
-                            <th>Khách hàng</th>
-                            <th>Sản phẩm</th>
-                            <th>Tổng tiền</th>
-                            <th>Trạng thái</th>
-                        </tr>
+                    <tr>
+                        <th>Mã ĐH</th>
+                        <th>Khách hàng</th>
+                        <th>SĐT</th>
+                        <th>Sản phẩm</th>
+                        <th>Tổng tiền</th>
+                        <th>Thời gian</th>
+                    </tr>
                     </thead>
                     <tbody id="admin-order-list"></tbody>
                 </table>
@@ -138,12 +138,6 @@
     </div>
 
     <script>
-        // Dữ liệu mẫu ban đầu
-        let products = JSON.parse(localStorage.getItem('products_data')) || [
-            { id: 1, name: "Terra Sữa Đá", price: 29000, category: "Cà phê", image: "https://www.Terra Café.com..." }
-
-        ];
-
         // 1. Chuyển đổi Menu
         function showSection(section) {
             document.getElementById('products-section').style.display = section === 'products' ? 'block' : 'none';
@@ -162,61 +156,144 @@
             form.style.display = form.style.display === 'none' ? 'block' : 'none';
         }
 
-        function renderProducts() {
-            const list = document.getElementById('admin-product-list');
-            list.innerHTML = products.map((p, index) => `
+        async function renderProducts() {
+            const res = await fetch("http://localhost:3000/products");
+            const products = await res.json();
+
+            const list = document.getElementById("admin-product-list");
+
+            list.innerHTML = products.map(p => `
                 <tr>
-                    <td><img src="${p.image}" width="40"></td>
+                    <td><img src="${p.image}" width="50"/></td>
                     <td>${p.name}</td>
                     <td>${p.category}</td>
-                    <td>${p.price.toLocaleString()}đ</td>
-                    <td><button class="btn-delete" onclick="deleteProduct(${index})"><i class="fa-solid fa-trash"></i></button></td>
+                    <td>${Number(p.price).toLocaleString()}đ</td>
+                    <td>
+                        <button type="button" onclick="editProduct(${p.id})">✏️</button>
+                        <button type="button" onclick="deleteProduct(${p.id})">🗑</button>
+                    </td>
                 </tr>
             `).join('');
-            localStorage.setItem('products_data', JSON.stringify(products));
         }
 
-        function addProduct() {
-            const newP = {
-                id: Date.now(),
-                name: document.getElementById('p-name').value,
-                price: parseInt(document.getElementById('p-price').value),
-                image: document.getElementById('p-img').value || 'https://via.placeholder.com/150',
-                category: document.getElementById('p-cat').value
-            };
-            products.push(newP);
+        function editProduct(id) {
+            editingId = Number(id); // 👈 ÉP KIỂU CHẮC CHẮN
+
+                if (isNaN(editingId)) {
+                    alert("ID không hợp lệ!");
+                    return;
+                }
+
+            console.log("editingId set:", editingId);
+
+            fetch("http://localhost:3000/products")
+                .then(res => res.json())
+                .then(products => {
+                    const p = products.find(x => x.id == id); // 👈 đổi === thành ==
+
+                    if (!p) return alert("Không tìm thấy sản phẩm");
+
+                    document.getElementById('p-name').value = p.name;
+                    document.getElementById('p-price').value = p.price;
+                    document.getElementById('p-img').value = p.image;
+                    document.getElementById('p-cat').value = p.category;
+
+                    toggleForm();
+                });
+        }
+        
+        async function addProduct() {
+            
+            const name = document.getElementById('p-name').value;
+            const price = Number(document.getElementById('p-price').value);
+            const image = document.getElementById('p-img').value;
+            const category = document.getElementById('p-cat').value;
+
+            if (!name || !price) {
+                alert("Nhập thiếu thông tin!");
+                return;
+            }
+
+            if (editingId !== null && !isNaN(editingId)) {
+                const url = `http://localhost:3000/products/${editingId}`;
+                console.log("CALL API:", url);
+
+                await fetch(url, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, price, image, category })
+                });
+
+                alert("Đã cập nhật!");
+                editingId = null;
+            } else {
+                await fetch("http://localhost:3000/products", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, price, image, category })
+                });
+
+                alert("Thêm thành công!");
+            }
+
+            // 🔥 reset form
+            document.getElementById('p-name').value = "";
+            document.getElementById('p-price').value = "";
+            document.getElementById('p-img').value = "";
+            document.getElementById('p-cat').value = "Cà phê";
+
             renderProducts();
             toggleForm();
         }
 
-        function deleteProduct(index) {
-            if(confirm('Bạn muốn xóa sản phẩm này?')) {
-                products.splice(index, 1);
-                renderProducts();
-            }
-        }
-
         // 3. Logic Đơn hàng (Lấy từ localStorage 'orders' nếu bạn đã làm chức năng Checkout)
-        function renderOrders() {
-            const orders = JSON.parse(localStorage.getItem('all_orders')) || [];
-            const list = document.getElementById('admin-order-list');
-            list.innerHTML = orders.map(o => `
-                <tr>
-                    <td>#${o.id}</td>
-                    <td>${o.customerName}<br><small>${o.phone}</small></td>
-                    <td>${o.items.map(i => i.name).join(', ')}</td>
-                    <td style="color:red; font-weight:bold;">${o.total.toLocaleString()}đ</td>
-                    <td><span class="status-badge status-pending">Đang xử lý</span></td>
-                </tr>
-            `).join('');
-        }
+async function renderOrders() {
+    const res = await fetch("http://localhost:3000/orders");
+    const orders = await res.json();
 
+    const list = document.getElementById('admin-order-list');
+
+    list.innerHTML = orders.map(o => {
+        const items = JSON.parse(o.items);
+
+        return `
+            <tr>
+                <td>#${o.order_code}</td>
+                <td>${o.customer_name}</td>
+                <td>${o.phone}</td>
+                <td>
+                    ${items.map(i => i.name + " x" + (i.quantity || 1)).join("<br>")}
+                </td>
+                <td style="color:red; font-weight:bold;">
+                    ${o.total.toLocaleString()}đ
+                </td>
+                <td>${new Date(o.created_at).toLocaleString("vi-VN")}</td>
+            </tr>
+        `;
+    }).join('');
+}
         // Khởi tạo trang
         window.onload = renderProducts;
 
         function goHome() {
     window.location.href = "index.html";
         }
+
+    async function deleteProduct(id) {
+    if (!confirm("Bạn chắc chắn muốn xóa?")) return;
+
+    await fetch(`http://localhost:3000/products/${id}`, {
+        method: "DELETE"
+    });
+
+    alert("Đã xóa!");
+
+    renderProducts();
+}
+
+let editingId = null;
+
     </script>
+    
 </body>
 </html>

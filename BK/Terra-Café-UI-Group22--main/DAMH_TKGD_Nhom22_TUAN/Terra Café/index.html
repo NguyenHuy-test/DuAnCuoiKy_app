@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terra Café</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="index-page">
+    <div id="header-container"></div>
+
+    <!-- Header will be loaded by components.js -->
+
+    <main style="background-color: #fff">
+      <div class="container">
+        <div class="main-content">
+          <!-- Hero Banner Section -->
+          <section class="hero-banner">
+            <div class="slide" style="margin-left: 270px">
+              <img src="./public/hero1.png" alt="Banner 1" style="width: 100%; height: auto;" />
+            </div>
+          </section>
+
+          <!-- Discount Coupons Section -->
+          <section class="discount-coupons">
+            <div class="coupons-container">
+              <div class="coupon-card">
+                <div class="coupon-left">
+                  <div class="coupon-badge">
+                    <span class="coupon-text">TẶNG</span>
+                    <span class="coupon-amount">50K</span>
+                  </div>
+                </div>
+                <div class="coupon-right">
+                  <div class="coupon-info">
+                    <h3 class="coupon-title">NHẬP MÃ: TANG50K</h3>
+                    <p class="coupon-desc">- Giảm 50K cho hóa đơn từ</p>
+                    <p class="coupon-min">199K</p>
+                  </div>
+                  <div class="coupon-actions">
+                    <button class="btn-copy-code" onclick="copyCode('TANG50K')">
+                      Sao chép mã
+                    </button>
+                    <button
+                      class="btn-conditions"
+                      onclick="showConditions('TANG50K')"
+                    >
+                      Điều kiện
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="coupon-card">
+                <div class="coupon-left">
+                  <div class="coupon-badge">
+                    <span class="coupon-text">TẶNG</span>
+                    <span class="coupon-amount">35K</span>
+                  </div>
+                </div>
+                <div class="coupon-right">
+                  <div class="coupon-info">
+                    <h3 class="coupon-title">NHẬP MÃ: TANG35K</h3>
+                    <p class="coupon-desc">- Giảm 35K cho hóa đơn từ</p>
+                    <p class="coupon-min">149K</p>
+                  </div>
+                  <div class="coupon-actions">
+                    <button class="btn-copy-code" onclick="copyCode('TANG35K')">
+                      Sao chép mã
+                    </button>
+                    <button
+                      class="btn-conditions"
+                      onclick="showConditions('TANG35K')"
+                    >
+                      Điều kiện
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="coupon-card">
+                <div class="coupon-left">
+                  <div class="coupon-badge">
+                    <span class="coupon-text">TẶNG</span>
+                    <span class="coupon-amount">20K</span>
+                  </div>
+                </div>
+                <div class="coupon-right">
+                  <div class="coupon-info">
+                    <h3 class="coupon-title">NHẬP MÃ: TANG20K</h3>
+                    <p class="coupon-desc">- Giảm 20K cho hóa đơn từ</p>
+                    <p class="coupon-min">129K</p>
+                  </div>
+                  <div class="coupon-actions">
+                    <button class="btn-copy-code" onclick="copyCode('TANG20K')">
+                      Sao chép mã
+                    </button>
+                    <button
+                      class="btn-conditions"
+                      onclick="showConditions('TANG20K')"
+                    >
+                      Điều kiện
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="new-products">
+            <div class="section-header">
+              <h2>SẢN PHẨM MỚI</h2>
+              <a
+                href="category.html?category=all"
+                class="btn-view-all"
+                style="text-decoration: none; font-weight: 500"
+                >HOT HOT HOT</a
+              >
+            </div>
+            <div class="products-grid" id="product-list"></div>
+            <div class="section-footer" style="margin-top: 30px">
+              <a href="category.html?category=all" class="btn-view-all"
+                >Xem tất cả ></a
+              >
+            </div>
+          </section>
+          <!-- Coffee Daily Section -->
+          <section class="coffee-daily">
+            <div class="section-header">
+              <div class="coffee-title">
+                <span class="coffee-icon">☕</span>
+                <h2>CÀ PHÊ MỖI NGÀY</h2>
+              </div>
+            </div>
+            <div class="coffee-products-grid">
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/D2691E/FFFFFF?text=Terra Café+Sua+Da"
+                    alt="Terra Café Sữa Đá"
+                  />
+                  <div class="product-label bestseller">BÁN CHẠY!</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>TerraCafé Sữa Đá</h3>
+                  <div class="product-price">
+                    <span class="price">29.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/8B4513/FFFFFF?text=Bac+Xiu+Da"
+                    alt="Bạc Xỉu Đá"
+                  />
+                  <div class="product-label hot">THỊT NGAY!</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>Bạc Xỉu Đá</h3>
+                  <div class="product-price">
+                    <span class="price">29.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/654321/FFFFFF?text=Terra Café+Den+Da"
+                    alt="Terra Café Đen Đá"
+                  />
+                  <div class="product-label bestseller">BÁN CHẠY!</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>Terra Café Đen Đá</h3>
+                  <div class="product-price">
+                    <span class="price">29.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/F5F5DC/000000?text=Cappuccino"
+                    alt="Cappuccino"
+                  />
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>Cappuccino</h3>
+                  <div class="product-price">
+                    <span class="price">65.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/8B4513/FFFFFF?text=Americano"
+                    alt="Americano"
+                  />
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>Americano</h3>
+                  <div class="product-price">
+                    <span class="price">45.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="coffee-products-grid second-row">
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/F5F5DC/8B4513?text=Caramel+Macchiato"
+                    alt="Caramel Macchiato"
+                  />
+                  <div class="product-label hot">THỦ NGAY!</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>Caramel Macchiato</h3>
+                  <div class="product-price">
+                    <span class="price">69.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/8B4513/FFFFFF?text=Terra Café+Hanh+Nhan"
+                    alt="Terra Café Hạnh Nhân"
+                  />
+                  <div class="product-label bestseller">BÁN CHẠY!</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>Terra Café Hạnh Nhân</h3>
+                  <div class="product-price">
+                    <span class="price">45.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/D2691E/FFFFFF?text=Terra+Choco"
+                    alt="Terra Choco"
+                  />
+                  <div class="product-label hot">THỦ NGAY!</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>Terra Choco</h3>
+                  <div class="product-price">
+                    <span class="price">45.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/F5F5DC/8B4513?text=Terra+Kem+Sua"
+                    alt="Terra Kem Sữa"
+                  />
+                  <div class="product-label hot">THỦ NGAY!</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>Terra Kem Sữa</h3>
+                  <div class="product-price">
+                    <span class="price">45.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card coffee">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/8B4513/FFFFFF?text=Mocha+Da"
+                    alt="Mocha Đá"
+                  />
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>Mocha Đá</h3>
+                  <div class="product-price">
+                    <span class="price">69.000đ</span>
+                    <button class="btn-add-cart coffee">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section-footer">
+              <a href="category.html?category=coffee" class="btn-view-all"
+                >Xem tất cả ></a
+              >
+            </div>
+          </section>
+          <!-- Flash Sale Section -->
+          <section class="flash-sale">
+            <div class="section-header">
+              <div>
+                <div class="flash-title" style="margin-bottom: 10px">
+                  <span class="flash-icon">⚡ ⚡</span>
+                  <h2>FLASH SALE</h2>
+                  <span class="flash-icon">⚡ ⚡</span>
+                </div>
+                <p class="flash-subtitle">
+                  Sản phẩm sẽ trở về giá gốc khi hết giờ
+                </p>
+              </div>
+              <div class="countdown-timer">
+                <div class="time-unit">
+                  <span class="time-value"></span>
+                  <span class="time-label">Giờ</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value"></span>
+                  <span class="time-label">Phút</span>
+                </div>
+                <div class="time-unit">
+                  <span class="time-value"></span>
+                  <span class="time-label">Giây</span>
+                </div>
+              </div>
+            </div>
+            <div class="flash-products-grid">
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/DC143C/FFFFFF?text=Ly+Giu+Nhiet"
+                    alt="Ly Giữ Nhiệt Terra Café"
+                  />
+                  <div class="discount-badge">-34%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>LY GIỮ NHIỆT Terra Café...</h3>
+                  <div class="product-price">
+                    <span class="current-price">349.000đ</span>
+                    <span class="original-price">529.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">304 sản phẩm đã bán</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/8B4513/FFFFFF?text=Ca+Phe+Hoa+Tan"
+                    alt="Cà Phê Hòa Tan"
+                  />
+                  <div class="discount-badge">-10%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>CÀ PHÊ HÒA TAN 3 TRONG 1...</h3>
+                  <div class="product-price">
+                    <span class="current-price">179.000đ</span>
+                    <span class="original-price">199.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">324 sản phẩm đã bán</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/654321/FFFFFF?text=Binh+Giu+Nhiet"
+                    alt="Bình Giữ Nhiệt"
+                  />
+                  <div class="discount-badge">-6%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>BÌNH GIỮ NHIỆT HOA TIẾT LÁ CÀ...</h3>
+                  <div class="product-price">
+                    <span class="current-price">499.000đ</span>
+                    <span class="original-price">529.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">304 sản phẩm đã bán</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/FFD700/000000?text=Binh+Logo"
+                    alt="Bình Logo"
+                  />
+                  <div class="discount-badge">-4%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>BÌNH GIỮ NHIỆT LOGO MÀU NÂNG...</h3>
+                  <div class="product-price">
+                    <span class="current-price">499.000đ</span>
+                    <span class="original-price">520.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">392 sản phẩm đã bán</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/DC143C/FFFFFF?text=Ly+Giu+Nhiet+2"
+                    alt="Ly Giữ Nhiệt 2"
+                  />
+                  <div class="discount-badge">-30%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>LY GIỮ NHIỆT Terra Café...</h3>
+                  <div class="product-price">
+                    <span class="current-price">349.000đ</span>
+                    <span class="original-price">499.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">249 sản phẩm</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flash-products-grid second-row">
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/CD853F/FFFFFF?text=Binh+Nham"
+                    alt="Bình Nhám"
+                  />
+                  <div class="discount-badge">-21%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>BÌNH NHÁM GIỮ NHIỆT LOGO...</h3>
+                  <div class="product-price">
+                    <span class="current-price">349.000đ</span>
+                    <span class="original-price">439.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">344 sản phẩm đã bán</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/CD853F/FFFFFF?text=Binh+Nham+2"
+                    alt="Bình Nhám 2"
+                  />
+                  <div class="discount-badge">-21%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>BÌNH NHÁM GIỮ NHIỆT LOGO...</h3>
+                  <div class="product-price">
+                    <span class="current-price">349.000đ</span>
+                    <span class="original-price">439.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">216 sản phẩm</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/8B4513/FFFFFF?text=Ly+Thuy+Tinh"
+                    alt="Ly Thủy Tinh"
+                  />
+                  <div class="discount-badge">-32%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>LY THỦY TINH ỐNG HÚT HOA...</h3>
+                  <div class="product-price">
+                    <span class="current-price">299.000đ</span>
+                    <span class="original-price">439.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">204 sản phẩm</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/F5F5DC/000000?text=Ly+Thuy+Tinh+2"
+                    alt="Ly Thủy Tinh 2"
+                  />
+                  <div class="discount-badge">-12%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra Café</p>
+                  <h3>LY THỦY TINH ỐNG HÚT HOA...</h3>
+                  <div class="product-price">
+                    <span class="current-price">289.000đ</span>
+                    <span class="original-price">329.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">300 sản phẩm đã bán</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card flash">
+                <div class="product-image">
+                  <img
+                    src="https://via.placeholder.com/200x250/8B0000/FFFFFF?text=Ca+Phe+Hoa+Tan+2"
+                    alt="Cà Phê Hòa Tan 2"
+                  />
+                  <div class="discount-badge">-54%</div>
+                </div>
+                <div class="product-info">
+                  <p class="product-category">Terra CaféE</p>
+                  <h3>CÀ PHÊ HÒA TAN 3 TRONG 1...</h3>
+                  <div class="product-price">
+                    <span class="current-price">75.000đ</span>
+                    <span class="original-price">163.000đ</span>
+                    <button class="btn-add-cart flash">+</button>
+                  </div>
+                  <div class="stock-info">
+                    <span class="stock-sold">244 sản phẩm đã bán</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section-footer">
+              <a href="flash-sale.html" class="btn-view-all">Xem tất cả ></a>
+            </div>
+          </section>
+
+          <!-- New Products Section -->
+
+          <!-- Trà - Freeze Section -->
+          <section class="tea-freeze-section">
+            <div class="section-header">
+              <h2>Trà - Freeze</h2>
+            </div>
+            <div class="tea-freeze-grid">
+              <!-- Tea-freeze items will be rendered by JavaScript -->
+            </div>
+            <div class="section-footer">
+              <a href="category.html?category=tea" class="btn-view-all"
+                >Xem tất cả ></a
+              >
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tin tức Terra Café Section -->
+    <section class="news-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>🔥 TIN TỨC Terra Café</h2>
+        </div>
+        <div class="news-grid">
+          <!-- News items will be rendered by JavaScript -->
+        </div>
+        <div class="section-footer">
+          <a href="./news.html" class="btn-view-all">Xem tất cả ></a>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalProductName">Tên sản phẩm</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="modal-product-info">
+            <div class="modal-image">
+              <img id="modalProductImage" src="" alt="Product Image" />
+            </div>
+            <div class="modal-details">
+              <p id="modalProductCategory" class="modal-category">
+                Terra Café
+              </p>
+              <h3 id="modalProductTitle">Tên sản phẩm</h3>
+              <div class="modal-price">
+                <span id="modalCurrentPrice" class="current-price">0đ</span>
+                <span
+                  id="modalOriginalPrice"
+                  class="original-price"
+                  style="display: none"
+                  >0đ</span
+                >
+                <span
+                  id="modalDiscountBadge"
+                  class="discount-badge"
+                  style="display: none"
+                  >-0%</span
+                >
+              </div>
+              <div class="modal-description">
+                <p>
+                  Thưởng thức hương vị đậm đà, thơm ngon của cà phê Terra Café
+                  Coffee được pha chế từ những hạt cà phê chất lượng cao.
+                </p>
+              </div>
+              <div class="modal-options">
+                <div class="quantity-section">
+                  <label>Số lượng:</label>
+                  <div class="quantity-controls">
+                    <button class="qty-btn" id="decreaseQty">-</button>
+                    <input
+                      type="number"
+                      id="modalQuantity"
+                      value="1"
+                      min="1"
+                      max="10"
+                    />
+                    <button class="qty-btn" id="increaseQty">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-actions">
+                <button id="addToCartModal" class="btn-add-to-cart-modal">
+                  <span class="cart-icon">🛒</span>
+                  Thêm vào giỏ hàng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      // Countdown Timer Function
+      function startCountdown() {
+        // Set countdown time (24 hours from now)
+        const countdownTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+
+        const timer = setInterval(function () {
+          const now = new Date().getTime();
+          const distance = countdownTime - now;
+
+          // Calculate hours, minutes, seconds
+          const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Update the timer display
+          const hourElement = document.querySelector(
+            ".countdown-timer .time-unit:nth-child(1) .time-value"
+          );
+          const minuteElement = document.querySelector(
+            ".countdown-timer .time-unit:nth-child(2) .time-value"
+          );
+          const secondElement = document.querySelector(
+            ".countdown-timer .time-unit:nth-child(3) .time-value"
+          );
+
+          if (hourElement)
+            hourElement.textContent = hours.toString().padStart(2, "0");
+          if (minuteElement)
+            minuteElement.textContent = minutes.toString().padStart(2, "0");
+          if (secondElement)
+            secondElement.textContent = seconds.toString().padStart(2, "0");
+
+          // If countdown is finished
+          if (distance < 0) {
+            clearInterval(timer);
+            if (hourElement) hourElement.textContent = "00";
+            if (minuteElement) minuteElement.textContent = "00";
+            if (secondElement) secondElement.textContent = "00";
+          }
+        }, 1000);
+      }
+
+      // Start countdown when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        startCountdown();
+      });
+    </script>
+  </body>
+</html>
+
+// đoạn này thêm
+
+<script>
+async function loadProducts() {
+    const res = await fetch("http://localhost:3000/products");
+    const products = await res.json();
+
+    const container = document.getElementById("product-list");
+    container.innerHTML = "";
+
+    products.forEach(p => {
+        container.innerHTML += `
+        <div class="product-card">
+            <div class="product-image">
+                <img src="${p.image}" alt="${p.name}">
+            </div>
+            <div class="product-info">
+                <p class="product-category">${p.category}</p>
+                <h3>${p.name}</h3>
+                <div class="product-price">
+                    <span class="price">${p.price}đ</span>
+                    <button class="btn-add-cart">+</button>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", loadProducts);
+</script>

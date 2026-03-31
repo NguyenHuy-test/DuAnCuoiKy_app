@@ -20,14 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Coffee products
     {
       id: 1,
-      name: "Terra Café Sữa Đá",
+      name: "Phin Sữa Đá",
       price: 29000,
       category: "coffee",
       image: "./public/c1.jpg",
     },
     {
       id: 2,
-      name: "Terra Café Đen Đá",
+      name: "Phin Đen Đá",
       price: 25000,
       category: "coffee",
       image: "./public/c3.jpg",
@@ -69,14 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       id: 8,
-      name: "Terra Café Sữa Nóng",
+      name: "Phin Sữa Nóng",
       price: 29000,
       category: "coffee",
       image: "./public/c1.jpg",
     },
     {
       id: 9,
-      name: "Terra Café Đen Nóng",
+      name: "Phin Đen Nóng",
       price: 25000,
       category: "coffee",
       image: "./public/c3.jpg",
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("category-title").textContent = categoryName;
     document.getElementById("category-breadcrumb").textContent = categoryName;
-    document.title = `${categoryName} - Terra Café;
+    document.title = `${categoryName} - Highlands Coffee`;
   }
 
   // Filter products by category
@@ -275,8 +275,8 @@ document.addEventListener("DOMContentLoaded", function () {
     card.onclick = () => goToProductDetail(product.id);
 
     const badgeHtml = product.badge
-      ? <div class="product-badge">${product.badge}</div>`
-       "";
+      ? `<div class="product-badge">${product.badge}</div>`
+      : "";
 
     card.innerHTML = `
             <div class="product-image">

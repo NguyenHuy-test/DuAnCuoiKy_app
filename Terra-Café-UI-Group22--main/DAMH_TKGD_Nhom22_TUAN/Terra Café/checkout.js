@@ -213,45 +213,56 @@ function handlePromoCode() {
 
 // Handle form submission
 function handleFormSubmission() {
-  const form = document.querySelector(".checkout-form");
   const placeOrderBtn = document.getElementById("place-order");
 
-  placeOrderBtn.addEventListener("click", function (e) {
+  // ❗ THÊM CHECK NÀY
+  if (!placeOrderBtn) {
+    console.error("❌ Không tìm thấy nút place-order");
+    return;
+  }
+
+  console.log("✅ Đã tìm thấy nút đặt hàng");
+
+  placeOrderBtn.addEventListener("click", async function (e) {
     e.preventDefault();
 
-    // Validate form
-    const requiredFields = form.querySelectorAll("[required]");
-    let isValid = true;
+    console.log("🔥 CLICK ĐẶT HÀNG");
 
-    requiredFields.forEach((field) => {
-      if (!field.value.trim()) {
-        isValid = false;
-        field.style.borderColor = "#e74c3c";
-      } else {
-        field.style.borderColor = "#ddd";
-      }
-    });
+    const name = document.getElementById("fullName").value;
+    const phone = document.getElementById("phone").value;
 
-    if (!isValid) {
-      showNotification("Vui lòng điền đầy đủ thông tin!", "error");
+    if (!name || !phone) {
+      alert("Vui lòng nhập đầy đủ thông tin!");
       return;
     }
 
-    // Simulate order placement
-    placeOrderBtn.textContent = "ĐANG XỬ LÝ...";
-    placeOrderBtn.disabled = true;
+    const cart = checkoutData.items;
 
-    setTimeout(() => {
-      showNotification(
-        "Đặt hàng thành công! Cảm ơn bạn đã mua hàng.",
-        "success"
-      );
+    const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
-      // Redirect to success page or home
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 2000);
-    }, 2000);
+    try {
+      const res = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          customerName: name,
+          phone: phone,
+          items: cart,
+          total: total
+        })
+      });
+
+      const data = await res.json();
+
+      console.log("✅ Đặt hàng thành công:", data);
+
+      window.location.href = `thankyou.html?code=${data.orderCode}`;
+    } catch (err) {
+      console.error("❌ Lỗi gọi API:", err);
+      alert("Không kết nối được server!");
+    }
   });
 }
 
@@ -364,16 +375,4 @@ document.addEventListener("click", function (event) {
 document.addEventListener("DOMContentLoaded", function () {
   loadCartData();
   initCheckout();
-});
-document.getElementById("place-order").addEventListener("click", function () {
-    // có thể kiểm tra form nếu muốn
-    const name = document.getElementById("fullName").value;
-
-    if (!name) {
-        alert("Vui lòng nhập họ tên!");
-        return;
-    }
-
-    // chuyển trang
-    window.location.href = "thankyou.html";
 });

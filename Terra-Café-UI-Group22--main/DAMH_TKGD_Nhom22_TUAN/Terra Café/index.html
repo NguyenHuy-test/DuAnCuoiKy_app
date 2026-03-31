@@ -120,93 +120,7 @@
                 >HOT HOT HOT</a
               >
             </div>
-            <div class="products-grid">
-              <div class="product-card">
-                <div class="product-image">
-                  <img
-                    src="https://via.placeholder.com/200x250/FFD700/FFFFFF?text=Phuong+Xoai+Dua"
-                    alt="Phương Xoài Dừa"
-                  />
-                  <div class="product-badge new">NEW</div>
-                </div>
-                <div class="product-info">
-                  <p class="product-category">Terra Café</p>
-                  <h3>Terra Xoài Dừa</h3>
-                  <div class="product-price">
-                    <span class="price">55.000đ</span>
-                    <button class="btn-add-cart">+</button>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-image">
-                  <img
-                    src="https://via.placeholder.com/200x250/87CEEB/FFFFFF?text=Phan+Sua+Dua"
-                    alt="Phan Sữa Dừa"
-                  />
-                  <div class="product-badge new">NEW</div>
-                </div>
-                <div class="product-info">
-                  <p class="product-category">Terra Café</p>
-                  <h3>Phan Sữa Dừa</h3>
-                  <div class="product-price">
-                    <span class="price">55.000đ</span>
-                    <button class="btn-add-cart">+</button>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-image">
-                  <img
-                    src="https://via.placeholder.com/200x250/8B4513/FFFFFF?text=Americano+Nuoc+Dua"
-                    alt="Americano Nước Dừa"
-                  />
-                  <div class="product-badge new">NEW</div>
-                </div>
-                <div class="product-info">
-                  <p class="product-category">Terra Café</p>
-                  <h3>Americano Nước Dừa</h3>
-                  <div class="product-price">
-                    <span class="price">55.000đ</span>
-                    <button class="btn-add-cart">+</button>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-image">
-                  <img
-                    src="https://via.placeholder.com/200x250/DEB887/FFFFFF?text=Ca+Phe+Freeze+Dua"
-                    alt="Cà Phê Freeze Dừa"
-                  />
-                  <div class="product-badge new">NEW</div>
-                </div>
-                <div class="product-info">
-                  <p class="product-category">Terra Café</p>
-                  <h3>Cà Phê Freeze Dừa</h3>
-                  <div class="product-price">
-                    <span class="price">75.000đ</span>
-                    <button class="btn-add-cart">+</button>
-                  </div>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-image">
-                  <img
-                    src="https://via.placeholder.com/200x250/F5DEB3/FFFFFF?text=Tra+Sua+Mochi+Dai+Loan"
-                    alt="Trà Sữa Mochi Đài Loan"
-                  />
-                  <div class="product-badge taiwan">TAIWAN</div>
-                </div>
-                <div class="product-info">
-                  <p class="product-category">Terra Café</p>
-                  <h3>Trà Sữa Mochi Đài Loan</h3>
-                  <div class="product-price">
-                    <span class="price">65.000đ</span>
-                    <button class="btn-add-cart">+</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="products-grid" id="product-list"></div>
             <div class="section-footer" style="margin-top: 30px">
               <a href="category.html?category=all" class="btn-view-all"
                 >Xem tất cả ></a
@@ -805,3 +719,38 @@
     </script>
   </body>
 </html>
+
+// đoạn này thêm
+
+<script>
+async function loadProducts() {
+    const res = await fetch("http://localhost:3000/products");
+    const products = await res.json();
+
+    products.reverse();              // mới nhất lên đầu
+    const latestProducts = products.slice(0, 5); // lấy 5 sản phẩm
+
+    const container = document.getElementById("product-list");
+    container.innerHTML = "";
+
+    latestProducts.forEach(p => {
+        container.innerHTML += `
+        <div class="product-card">
+            <div class="product-image">
+                <img src="${p.image}" alt="${p.name}">
+            </div>
+            <div class="product-info">
+                <p class="product-category">${p.category}</p>
+                <h3>${p.name}</h3>
+                <div class="product-price">
+                    <span class="price">${p.price}đ</span>
+                    <button class="btn-add-cart">+</button>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", loadProducts);
+</script>
