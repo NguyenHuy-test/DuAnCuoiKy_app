@@ -41,10 +41,10 @@
 
     <div class="sidebar">
         <div class="sidebar-header"><h3>ADMIN Terra Café</h3></div>
-        <div class="menu-item active" onclick="showSection('products')"><i class="fa-solid fa-mug-hot"></i> Sản phẩm </div>
-        <div class="menu-item" onclick="showSection('orders')"><i class="fa-solid fa-cart-shopping"></i> Đơn hàng</div>
+        <div class="menu-item active" onclick="showSection('products', event)"><i class="fa-solid fa-mug-hot"></i> Sản phẩm </div>
+        <div class="menu-item" onclick="showSection('orders', event)"><i class="fa-solid fa-cart-shopping"></i> Đơn hàng</div>
         
-        <div class="menu-item" onclick="showSection('dashboard')"><i class="fa-solid fa-chart-line"></i> Thống kê</div>
+        <div class="menu-item" onclick="showSection('dashboard', event)"><i class="fa-solid fa-chart-line"></i> Thống kê</div>
         
         <div class="menu-item" onclick="goHome()">
             <i class="fa-solid fa-house"></i> Trang chính
@@ -65,7 +65,9 @@
                         <option value="Trà">Trà</option>
                         <option value="Freeze">Freeze</option>
                     </select>
-                    <button type="button" class="btn btn-add" onclick="addProduct()">Lưu sản phẩm</button>
+                    <button id="save-btn" type="button" class="btn btn-add">
+                        Lưu sản phẩm
+                    </button>
                 </div>
 
                 <table>
@@ -139,13 +141,13 @@
 
     <script>
         // 1. Chuyển đổi Menu
-        function showSection(section) {
+        function showSection(section, e) {
             document.getElementById('products-section').style.display = section === 'products' ? 'block' : 'none';
             document.getElementById('orders-section').style.display = section === 'orders' ? 'block' : 'none';
-            
+
             document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
+            if (e) e.currentTarget.classList.add('active');
+
             if(section === 'products') renderProducts();
             if(section === 'orders') renderOrders();
         }
@@ -203,47 +205,45 @@
         }
         
         async function addProduct() {
-            
-            const name = document.getElementById('p-name').value;
-            const price = Number(document.getElementById('p-price').value);
-            const image = document.getElementById('p-img').value;
-            const category = document.getElementById('p-cat').value;
+            try {
+                const name = document.getElementById('p-name').value;
+                const price = Number(document.getElementById('p-price').value);
+                const image = document.getElementById('p-img').value;
+                const category = document.getElementById('p-cat').value;
 
-            if (!name || !price) {
-                alert("Nhập thiếu thông tin!");
-                return;
+                if (!name || !price) {
+                    alert("Nhập thiếu thông tin!");
+                    return;
+                }
+
+                if (editingId !== null && !isNaN(editingId)) {
+                    const url = `http://localhost:3000/products/${editingId}`;
+                    console.log("CALL API:", url);
+
+                    await fetch(url, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ name, price, image, category })
+                    });
+
+                    alert("Đã cập nhật!");
+                    editingId = null;
+                } else {
+                    await fetch("http://localhost:3000/products", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ name, price, image, category })
+                    });
+
+                    alert("Thêm thành công!");
+                }
+
+                renderProducts();
+                toggleForm();
+
+            } catch (err) {
+                console.error("Lỗi:", err);
             }
-
-            if (editingId !== null && !isNaN(editingId)) {
-                const url = `http://localhost:3000/products/${editingId}`;
-                console.log("CALL API:", url);
-
-                await fetch(url, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ name, price, image, category })
-                });
-
-                alert("Đã cập nhật!");
-                editingId = null;
-            } else {
-                await fetch("http://localhost:3000/products", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ name, price, image, category })
-                });
-
-                alert("Thêm thành công!");
-            }
-
-            // 🔥 reset form
-            document.getElementById('p-name').value = "";
-            document.getElementById('p-price').value = "";
-            document.getElementById('p-img').value = "";
-            document.getElementById('p-cat').value = "Cà phê";
-
-            renderProducts();
-            toggleForm();
         }
 
         // 3. Logic Đơn hàng (Lấy từ localStorage 'orders' nếu bạn đã làm chức năng Checkout)
@@ -292,6 +292,11 @@ async function renderOrders() {
 }
 
 let editingId = null;
+
+document.getElementById("save-btn").addEventListener("click", function(e) {
+    e.preventDefault(); // 💣 chặn mọi hành vi ngầm
+    addProduct();
+});
 
     </script>
     

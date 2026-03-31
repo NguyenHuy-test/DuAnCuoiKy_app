@@ -70,15 +70,10 @@ app.get("/orders", (req, res) => {
     });
 });
 
-// thêm code
-app.use(express.static(__dirname));
-
 // route trang chủ
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
-
-app.listen(3000, () => console.log("🚀 Server chạy 3000"));
 
 // chức năng update
 app.put("/products/:id", (req, res) => {
@@ -95,3 +90,8 @@ app.put("/products/:id", (req, res) => {
     res.send({ message: "Updated" });
   });
 });
+
+// thêm code
+app.use(express.static(__dirname));
+
+app.listen(3000, () => console.log("🚀 Server chạy 3000"));
