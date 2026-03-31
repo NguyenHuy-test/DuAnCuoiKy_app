@@ -107,6 +107,7 @@
         <section id="dashboard-section" style="display: none;">
         <div class="card">
             <h2>Báo cáo kinh doanh</h2>
+            <canvas id="revenueChart" height="100"></canvas>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                 <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 5px solid #2196f3;">
                     <p style="margin: 0; color: #666;">Tổng doanh thu</p>
@@ -144,12 +145,18 @@
         function showSection(section, e) {
             document.getElementById('products-section').style.display = section === 'products' ? 'block' : 'none';
             document.getElementById('orders-section').style.display = section === 'orders' ? 'block' : 'none';
+            document.getElementById('dashboard-section').style.display = section === 'dashboard' ? 'block' : 'none'; 
 
             document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
             if (e) e.currentTarget.classList.add('active');
 
             if(section === 'products') renderProducts();
             if(section === 'orders') renderOrders();
+            if(section === 'dashboard') {
+                renderRevenueChart();
+                renderTopProducts();
+                renderStats(); // 👈 THÊM DÒNG NÀY
+            }
         }
 
         // 2. Logic Sản phẩm
@@ -298,7 +305,136 @@ document.getElementById("save-btn").addEventListener("click", function(e) {
     addProduct();
 });
 
+async function renderRevenueChart() {
+    const res = await fetch("http://localhost:3000/orders");
+    const orders = await res.json();
+
+    // Tạo mảng 12 tháng
+    const monthlyRevenue = Array(12).fill(0);
+
+    orders.forEach(o => {
+        const date = new Date(o.created_at);
+        const month = date.getMonth(); // 0 -> 11
+        monthlyRevenue[month] += o.total;
+    });
+
+    drawChart(monthlyRevenue);
+}
+
+// LINE CHART
+function drawChart(data) {
+    const ctx = document.getElementById("revenueChart").getContext("2d");
+
+    new Chart(ctx, {
+        type: "line", // 👈 biểu đồ núi
+        data: {
+            labels: [
+                "T1","T2","T3","T4","T5","T6",
+                "T7","T8","T9","T10","T11","T12"
+            ],
+            datasets: [{
+                label: "Doanh thu (VNĐ)",
+                data: data,
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4 // 👈 làm mượt đường cong
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+// thống kê sản phẩm
+async function renderTopProducts() {
+    const res = await fetch("http://localhost:3000/orders");
+    const orders = await res.json();
+
+    const productMap = {};
+
+    orders.forEach(o => {
+        const items = JSON.parse(o.items);
+
+        items.forEach(i => {
+            if (!productMap[i.name]) {
+                productMap[i.name] = {
+                    quantity: 0,
+                    revenue: 0
+                };
+            }
+
+            const qty = i.quantity || 1;
+
+            productMap[i.name].quantity += qty;
+            productMap[i.name].revenue += qty * i.price;
+        });
+    });
+
+    // chuyển object → array
+    const result = Object.entries(productMap).map(([name, data]) => ({
+        name,
+        quantity: data.quantity,
+        revenue: data.revenue
+    }));
+
+    // sắp xếp giảm dần
+    result.sort((a, b) => b.quantity - a.quantity);
+
+    const list = document.getElementById("top-products-list");
+
+    list.innerHTML = result.map(p => `
+        <tr>
+            <td>${p.name}</td>
+            <td>${p.quantity}</td>
+            <td style="color:red">${p.revenue.toLocaleString()}đ</td>
+        </tr>
+    `).join('');
+}
+
+async function renderStats() {
+    // lấy orders
+    const resOrders = await fetch("http://localhost:3000/orders");
+    const orders = await resOrders.json();
+
+    // lấy products
+    const resProducts = await fetch("http://localhost:3000/products");
+    const products = await resProducts.json();
+
+    // 1. Tổng doanh thu
+    let totalRevenue = 0;
+    orders.forEach(o => {
+        totalRevenue += o.total;
+    });
+
+    // 2. Số đơn hàng
+    const orderCount = orders.length;
+
+    // 3. Số sản phẩm
+    const productCount = products.length;
+
+    // 👉 GÁN VÀO HTML
+    document.getElementById("stat-revenue").innerText =
+        totalRevenue.toLocaleString() + "đ";
+
+    document.getElementById("stat-order-count").innerText =
+        orderCount;
+
+    document.getElementById("stat-product-count").innerText =
+        productCount;
+}
+
     </script>
-    
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+
 </body>
 </html>
